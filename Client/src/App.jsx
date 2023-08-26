@@ -9,6 +9,7 @@ import Register from './pages/Register';
 
 function App() {
   const [count, setCount] = useState(0)
+  const [user, setUser] = useState({})
 
   return (
     <>
@@ -18,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Welcome/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
+          <Route path="/register" element={<Register setUser={setUser}/>}/>
         </Routes>
       </div>
     </BrowserRouter>
