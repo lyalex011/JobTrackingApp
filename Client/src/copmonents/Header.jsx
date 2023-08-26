@@ -13,11 +13,11 @@ function Header() {
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         
-                        {/* <Link className="mb-0" to="/"><img className="w-auto h-10" src="/quickpiclogo2.png" alt="logo" /></Link> */}
+                        <Link className="mb-0 text-lime-100" to="/">LOGO</Link>
                         
                         <div className="md:hidden z-40 ">
                             <button
-                                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border "
+                                className="p-2 text-lime-100 rounded-md outline-none focus:border-gray-400 focus:border "
                                 onClick={() => setNavbar(!navbar)}
                             >
                                 {navbar ? (
@@ -55,20 +55,26 @@ function Header() {
                 </div>
                 <div>
                     <div
-                        className={`flex-1 justify-self-center pb-3 mx-4 mt-8 mb-8 md:block md:pb-0 md:mt-0 z-40 top-0 ${
+                        className={`flex-1 justify-self-center pb-3 mx-4 mt-8 mb-3 md:block md:pb-0 md:mt-0 z-40 top-0 ${
                             navbar ? "block" : "hidden"
                         }`}
                     >
-                        <ul className="items-center justify-center mt-8 space-y-8 md:flex md:space-x-6 md:space-y-0">
+                        <ul className="items-center justify-center mt-2 space-y-8 md:flex md:space-x-6 md:space-y-0">
                             <li >
-                            {/* <Link className="mr-10  font-medium hover:text-blue-500" to="/" onClick={() => {setNavbar(false)}}>Home</Link> */}
+                            <Link className="mr-10 text-lime-100 font-medium hover:text-blue-300" to="/" onClick={() => {setNavbar(false)}}>Home</Link> 
                             </li>
                             <li >
-                            {/* <Link className="mr-10 font-medium hover:text-blue-500" to="/photolibrary" onClick={() => {setNavbar(false)}}>All photos</Link> */}
+                            <Link className="mr-10 text-lime-100 font-medium hover:text-blue-300" to="/photolibrary" onClick={() => {setNavbar(false)}}>All photos</Link>
                             </li>
                             <li>
-                            {/* <Link className="font-medium hover:text-blue-500" to="/about" onClick={() => {setNavbar(false)}}>About</Link> */}
+                            <Link className=" font-medium text-lime-100 hover:text-blue-300 mr-8" to="/about" onClick={() => {setNavbar(false)}}>About</Link>
                             </li>
+                            <button className=" relative inline-flex items-center justify-center p-0.5 mb-2  overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 hover:text-black focus:ring-1 focus:outline-none focus:ring-lime-200 ">
+                            <span className="relative px-3 py-1.5 transition-all ease-in duration-75 bg-sky-950  rounded-md group-hover:bg-opacity-0">
+                            Log In
+                            </span>
+                            </button>
+                            <button className="ml-4 text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-1 focus:outline-none focus:ring-lime-200  font-medium rounded-lg text-sm px-3 py-2 text-center ">Register</button>
                             
                             
                         </ul>
