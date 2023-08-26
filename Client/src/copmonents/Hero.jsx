@@ -5,8 +5,8 @@ function Hero() {
     const backgroundImageUrl = '../../public/images/unsplash.jpg'
     return ( 
         <div className=' block flex-col justify-around h-screen shrink-0' >
-            <div className="flex justify-center flex-row h-2/4 pt-12 pb-12 shrink-0" style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
-            <div className="mt-32">
+            <div className="flex justify-center flex-row h-2/4 pt-12 pb-12 shrink-0 mt-16 " style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
+            <div className="flex flex-col justify-center">
                 <h1 className="my-4 text-3xl md:text-5xl text-white  font-bold leading-tight text-center md:text-left">
             Track your&nbsp;  
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-lime-200">
@@ -27,7 +27,7 @@ function Hero() {
           </div>
                 
             </div>
-            <div className="block mt-12  shrink-0" >
+            <div className="block  shrink-0" >
                 <img className="block w-auto h-full hidden lg:block  shrink-0" src="../public/images/herobg.png" alt="" />
             </div>
         </div>
