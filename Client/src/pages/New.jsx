@@ -2,14 +2,19 @@ import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
+
 function New({ user }) {
   const [defaultDate, setDefaultDate] = useState("");
   const [option, setOption] = useState(2);
   const [showInput, setShowInput] = useState(false);
+  const [time, setTime] = useState([])
+  
+
 
 
 
   useEffect(() => {
+    
     const today = new Date();
     const formattedDate = today.toISOString().substr(0, 10);
     setDefaultDate(formattedDate);
@@ -23,8 +28,12 @@ function New({ user }) {
   const dateRef = useRef();
   const checkboxRef = useRef();
   const intdateRef = useRef();
+  const intHoursRef = useRef();
+  const intMinsRef = useRef();
+  const intAmsRef = useRef();
   const intTypeRef = useRef();
   const commentRef = useRef();
+
 
   const navigate = useNavigate();
 
@@ -45,7 +54,7 @@ function New({ user }) {
           contact: contactRef.current.value,
           comments: commentRef.current.value,
           yesInterview: showInput,
-
+          timeInterview: intHoursRef.current.value + ':' + intMinsRef.current.value + intAmsRef.current.value,
           typeInterview: intTypeRef.current.value,
           dateInterview: intdateRef.current.value,
           user: user,
@@ -81,6 +90,8 @@ function New({ user }) {
   const handleCheckboxChange = () => {
     setShowInput(!showInput);
   };
+
+
 
   return (
     <div className="flex justify-center">
@@ -286,6 +297,57 @@ function New({ user }) {
                       />
                     </div>
                   </div>
+
+                  <div className=" bg-white rounded-lg sm:col-span-3">
+                  <label
+                      htmlFor="date"
+                      className="block text-sm font-medium leading-6 text-gray-900 mb-1.5"
+                    >
+                      Time of interview
+                    </label>
+  <div className="flex flex-row items-center sm:col-span-3 ">
+    <select ref={intHoursRef} name="hours" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">10</option>
+      <option value="12">12</option>
+    </select>
+    <span className="text-xl mx-1">:</span>
+    <select ref={intMinsRef}  name="minutes" className="mr-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2">
+      <option value="0">00</option>
+      <option value="05">05</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+      <option value="35">35</option>
+      <option value="40">40</option>
+      <option value="45">45</option>
+      <option value="55">55</option>
+    </select>
+    <select ref={intAmsRef} name="ampm" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2">
+      <option value="am">AM</option>
+      <option value="pm">PM</option>
+    </select>
+  </div>
+</div>
+
+
+
+
+
+
+
+
                   <div className="sm:col-span-3">
                     <label
                       htmlFor="priority"

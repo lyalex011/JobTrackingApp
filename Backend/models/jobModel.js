@@ -30,6 +30,9 @@ const jobSchema = new Schema({
   dateInterview: {
     type: Date,
   },
+  timeInterview: {
+    type: String
+  },
   yesInterview: {
     type: Boolean,
     default: false,
