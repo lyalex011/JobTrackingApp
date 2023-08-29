@@ -7,6 +7,7 @@ function Header({ setUser, username }) {
   const logout = () => {
     localStorage.removeItem("token");
     setUser({});
+    setNavbar(false)
   };
 
   return (
@@ -131,14 +132,18 @@ function Header({ setUser, username }) {
                 </>
               ) : (
                 <div>
-                  <Link to="/login">
+                  <Link to="/login" onClick={() => {
+                    setNavbar(false);
+                  }}>
                     <button className=" relative inline-flex items-center justify-center p-0.5   overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 hover:text-black focus:ring-1 focus:outline-none focus:ring-lime-200 ">
                       <span className="relative px-3 py-1.5 transition-all ease-in duration-75 bg-sky-950  rounded-md group-hover:bg-opacity-0">
                         Log In
                       </span>
                     </button>
                   </Link>
-                  <Link to="/register">
+                  <Link to="/register" onClick={() => {
+                    setNavbar(false);
+                  }}>
                     <button className="ml-4 text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-1 focus:outline-none focus:ring-lime-200  font-medium rounded-lg text-sm px-3 py-2 text-center ">
                       Register
                     </button>

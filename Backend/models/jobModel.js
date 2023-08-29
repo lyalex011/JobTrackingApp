@@ -37,12 +37,12 @@ const jobSchema = new Schema({
   typeInterview: {
     type: String,
   },
-  // priority: {
-  //   type: Number,
-  //   required: true,
-  //   min: 1,
-  //   max: 3,
-  // },
+  priority: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 3,
+  },
   archived: {
     type: Boolean,
     default: false,

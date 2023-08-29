@@ -1,13 +1,28 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import axios from 'axios'
 import { useNavigate, Link } from "react-router-dom";
+import { Select, Option } from "@material-tailwind/react";
 
 
 
 function New({user}) {
+    const [defaultDate, setDefaultDate] = useState(''); 
+    const [option, setOption] = useState(2);
+
+    const optionsState = 2;
+
+    useEffect(() => {
+      const today = new Date();
+      const formattedDate = today.toISOString().substr(0, 10);
+      setDefaultDate(formattedDate);
+    }, []);
+
     const companyRef = useRef()
     const positionRef = useRef()
     const urlRef = useRef()
+    const salaryRef = useRef()
+    const contactRef = useRef()
+    const dateRef = useRef()
 
     const navigate = useNavigate()
 
@@ -19,6 +34,8 @@ function New({user}) {
                 company: companyRef.current.value,
                 role: positionRef.current.value,
                 url: urlRef.current.value,
+                dateApplied: dateRef.current.value,
+                priority: option,
                 user: user
                            
             }
@@ -34,6 +51,10 @@ function New({user}) {
         }
     }
 
+    const handleChange = (event) => {
+      setOption(event.target.value);
+    };
+
 
     return ( 
         <div className="flex justify-center">
@@ -46,10 +67,7 @@ function New({user}) {
             <p className="mt-1 text-sm leading-6 text-gray-600">
               You are only one step from taking control of your job search
             </p>
-            <p className="mt-1 text-sm leading-6 text-gray-600">
-              Already have an account?{" "}
-              <Link className="text-sky-400 underline" to="/login">Log In</Link>
-            </p>
+            
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
@@ -112,6 +130,40 @@ function New({user}) {
                   />
                 </div>
               </div>
+
+              <div className="sm:col-span-3">
+                <label
+                  htmlFor="date"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Date of application
+                </label>
+                <div className="mt-2">
+                  <input
+                    type="date"
+                    name="date"
+                    id="date"
+                    autoComplete="date"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                    ref={dateRef}
+                    value={defaultDate}
+                    onChange={(e) => setDefaultDate(e.target.value)}
+                   
+                    
+                  />
+                </div>
+              </div>
+
+              <div className="sm:col-span-3">
+              <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Choose a priority level</label>
+<select value={option} onChange={handleChange} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option value={1}>High</option>
+  <option  value={2} >Medium </option>
+  <option value={3}>Low</option>
+</select>
+              </div>
+ 
+                
 
               <div className="col-span-full">
                 <label
