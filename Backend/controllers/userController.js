@@ -9,7 +9,8 @@ module.exports.show = async (req, res) => {
         res.json({
             firstName: foundUser.firstName, 
             lastName: foundUser.lastName, 
-            email: foundUser.email
+            email: foundUser.email,
+            id: foundUser._id
         })
     } catch(error) {
         res.json({ error: error.message })

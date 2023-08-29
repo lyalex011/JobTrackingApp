@@ -36,11 +36,13 @@ module.exports.update = async (req,res) => {
         res.json({error: error.message})
     }
 }
+
 // Create function export to create a new post
 module.exports.create = async (req,res) => {
     try{
         // Generate a new posts from the database
-        const posts = await Posts.create(req.body)
+        console.log(req.body)
+        const posts = await Jobs.create(req.body)
         res.json(posts)
     }catch(error){
         console.log(error.message)
@@ -51,7 +53,7 @@ module.exports.create = async (req,res) => {
 module.exports.show = async (req, res) => {
     try{
         // This will get the data from the database by search for the ID
-        const posts = await Posts.findById(req.params.id)
+        const posts = await Jobs.findById(req.params.id)
         res.status(200).json(posts)
     }catch(error){
         console.log(error.message)

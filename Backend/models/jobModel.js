@@ -37,19 +37,19 @@ const jobSchema = new Schema({
   typeInterview: {
     type: String,
   },
-  priority: {
-    type: Number,
-    required: true,
-    min: 1,
-    max: 3,
-  },
+  // priority: {
+  //   type: Number,
+  //   required: true,
+  //   min: 1,
+  //   max: 3,
+  // },
   archived: {
     type: Boolean,
     default: false,
   },
-  author: { 
+  user: { 
     type: mongoose.Schema.Types.ObjectId, 
-    ref: 'User', required: true }
+    ref: 'User'}
 }, { timestamps: true });
 
 const Job = mongoose.model("jobs", jobSchema);

@@ -7,6 +7,7 @@ import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import New from './pages/New';
 
 function App() {
   const [user, setUser] = useState({})
@@ -39,8 +40,9 @@ function App() {
     }
     
 }, [])
-
+console.log("test:", user)
 let loggedIn = user.firstName
+let loggedIn_id = user.id
 
   return (
     <>
@@ -50,7 +52,7 @@ let loggedIn = user.firstName
         <Routes>
            <Route path="/" element={<Welcome/>}/> 
           <Route path="/dash" element={<Dashboard/>}/>
-          
+          <Route path="/new" element={<New user={loggedIn_id}/>}/>
           
           
           <Route path="/login" element={<Login setUser={setUser}/>}/>
