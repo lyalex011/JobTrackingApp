@@ -5,8 +5,10 @@ const Jobs = require('../models/jobModel')
 module.exports.index = async (req,res) => {
     try{
         const authorId = req.params.authorId;
+        console.log("index:", authorId)
         //Find the job post by the author.
-        const jobs = await Jobs.find({ author: authorId }).sort({createdAt: 1})
+        const jobs = await Jobs.find({ user: authorId }).sort({createdAt: 1})
+        console.log(jobs)
         res.json(jobs)
     }catch(error){
         console.log(error.message)

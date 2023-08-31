@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import New from './pages/New';
+import Index from './pages/Index';
 
 function App() {
   const [user, setUser] = useState({})
@@ -53,6 +54,7 @@ let loggedIn_id = user.id
            <Route path="/" element={<Welcome/>}/> 
           <Route path="/dash" element={<Dashboard/>}/>
           <Route path="/new" element={<New user={loggedIn_id}/>}/>
+          <Route path="/index/:authorId" element={<Index user={loggedIn_id}/>}/>
           
           
           <Route path="/login" element={<Login setUser={setUser}/>}/>
