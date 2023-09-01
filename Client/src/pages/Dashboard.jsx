@@ -2,7 +2,7 @@
 import Folders from "../copmonents/Folders";
 
 
-function Dashboard() {
+function Dashboard({user}) {
   return (
     <div className="mt-12 sm:mt-24 flex flex-col items-center">
       <div>
@@ -92,7 +92,7 @@ function Dashboard() {
         </div>
       </div>
 
-      <Folders/>
+      <Folders user={user}/>
 
     </div>
   );

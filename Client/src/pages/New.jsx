@@ -74,7 +74,7 @@ function New({ user }) {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      navigate(`/`);
+      navigate(`/dash`);
     } catch (err) {
       console.log(err.message);
     }
@@ -87,6 +87,10 @@ function New({ user }) {
   const handleCheckboxChange = () => {
     setShowInput(!showInput);
   };
+
+  const goBack = () => {
+		navigate(-1);
+	}
 
   return (
     <div className="flex justify-center">
@@ -384,7 +388,7 @@ function New({ user }) {
         </div>
 
         <div className="mt-6 flex items-center justify-end gap-x-6">
-          <Link to="/">
+          <Link onClick={goBack}>
             <button
               type="button"
               className="text-sm font-semibold leading-6 text-gray-900 hover:text-sky-400"

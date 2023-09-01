@@ -52,10 +52,9 @@ let loggedIn_id = user.id
         <Header username={loggedIn} setUser={setUser}/>
         <Routes>
            <Route path="/" element={<Welcome/>}/> 
-          <Route path="/dash" element={<Dashboard/>}/>
+          <Route path="/dash" element={<Dashboard user={loggedIn_id}/>}/>
           <Route path="/new" element={<New user={loggedIn_id}/>}/>
           <Route path="/index/:authorId" element={<Index user={loggedIn_id}/>}/>
-          
           
           <Route path="/login" element={<Login setUser={setUser}/>}/>
           <Route path="/register" element={<Register setUser={setUser}/>}/>
