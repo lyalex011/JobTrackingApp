@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 function BackToDash() {
   return (
     <>
-    <Link
-          to="/dash"
-          className="bg-gray-300 text-gray-700 shadow-md rounded-l-md border-r border-gray-100  hover:bg-blue-950 hover:text-white px-3 font-bold"
-        >
-      <button className="mx-2 my-3 text-sm flex flex-row align-middle cursor:pointer">
-        
+      <Link
+        to="/dash"
+        className="bg-gray-300 text-gray-700 shadow-md rounded-l-lg border-r-2 border-blue-950  hover:bg-blue-950 hover:text-white px-3 font-bold"
+      >
+        <button className="mx-2 my-3 text-sm flex flex-row align-middle cursor:pointer">
           <svg
             className="w-5 mr-2"
             fill="currentColor"
@@ -21,8 +20,7 @@ function BackToDash() {
             ></path>
           </svg>
           Dashboard
-        
-      </button>
+        </button>
       </Link>
     </>
   );

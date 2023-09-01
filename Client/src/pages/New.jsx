@@ -32,8 +32,7 @@ function New({ user }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(user);
-    console.log(showInput);
+
     try {
       let newJob = {};
       if (showInput) {

@@ -50,6 +50,10 @@ const jobSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  wishlist: {
+    type: Boolean,
+    default: false,
+  },
   user: { 
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'User'}

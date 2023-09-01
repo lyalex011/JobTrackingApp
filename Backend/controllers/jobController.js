@@ -31,7 +31,8 @@ module.exports.delete = async (req, res) => {
 module.exports.update = async (req,res) => {
     try{
         //Finds the post by ID and updates the data
-        const updateJob = await Jobs.findByIdAndUpdate(req.params.id)
+        const updateJob = await Jobs.findOneAndUpdate({ _id: req.params.id, user: req.params.authorId }, req.body, { new: true })
+        console.log("Update:!!!!!!!!!!!!", updateJob)
         res.json(updateJob)
     }catch(error){
         console.log(error.message)
@@ -55,8 +56,8 @@ module.exports.create = async (req,res) => {
 module.exports.show = async (req, res) => {
     try{
         // This will get the data from the database by search for the ID
-        const posts = await Jobs.findById(req.params.id)
-        res.status(200).json(posts)
+        const job = await Jobs.findById(req.params.id)
+        res.status(200).json(job)
     }catch(error){
         console.log(error.message)
         res.status(404).json({error: error.message})
