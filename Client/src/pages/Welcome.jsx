@@ -1,9 +1,9 @@
 import Hero from "../copmonents/Hero";
 
-function Welcome() {
+function Welcome({user}) {
     return ( 
-        <div>
-            <Hero/>
+        <div >
+            <Hero user={user}/>
         </div>
      );
 }
