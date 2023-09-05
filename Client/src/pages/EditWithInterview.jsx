@@ -2,11 +2,12 @@ import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link, useParams } from "react-router-dom";
 
-function EditWishlist() {
+function EditWithInterview() {
   const [defaultDate, setDefaultDate] = useState("");
+  const [defautIntDate, setDefaultIntDate] = useState("");
   const [option, setOption] = useState();
-  const [showInput, setShowInput] = useState(false);
-  const [noWishlist, setNoWishlist] = useState(false);
+  const [intTime, setintTime] = useState();
+  const [showInput, setShowInput] = useState();
   const [job, setJob] = useState({});
   const { authorId, id } = useParams();
   const navigate = useNavigate();
@@ -18,17 +19,16 @@ function EditWishlist() {
   const contactRef = useRef();
   const dateRef = useRef();
   const checkboxRef = useRef();
-  const wishcheckboxRef = useRef();
   const intdateRef = useRef();
   const intHoursRef = useRef();
   const intMinsRef = useRef();
   const intAmsRef = useRef();
   const intTypeRef = useRef();
   const commentRef = useRef();
+  const addressRef = useRef()
 
   async function getJob() {
     try {
-      console.log("id: ", authorId, id);
       const response = await axios.get(`/api/jobs/${authorId}/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -36,9 +36,12 @@ function EditWishlist() {
       });
 
       setJob(response.data);
+      
+        setShowInput(response.data.yesInterview);
+        setintTime(response.data.timeInterview)
     } catch (err) {
       console.log(err.message);
-      navigate(`/index/${authorId}`);
+      navigate(`/interview/${authorId}`);
     }
   }
 
@@ -57,7 +60,6 @@ function EditWishlist() {
           salary: salaryRef.current.value,
           contact: contactRef.current.value,
           comments: commentRef.current.value,
-          wishlist: !noWishlist,
           yesInterview: showInput,
           timeInterview:
             intHoursRef.current.value +
@@ -66,6 +68,7 @@ function EditWishlist() {
             intAmsRef.current.value,
           typeInterview: intTypeRef.current.value,
           dateInterview: intdateRef.current.value,
+          intAddress: addressRef.current.value,
         };
       } else {
         updateJob = {
@@ -77,7 +80,6 @@ function EditWishlist() {
           salary: salaryRef.current.value,
           contact: contactRef.current.value,
           comments: commentRef.current.value,
-          wishlist: !noWishlist,
         };
       }
       await axios.put(`/api/jobs/${authorId}/${id}`, updateJob, {
@@ -85,7 +87,7 @@ function EditWishlist() {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      navigate(`/wishlist/${authorId}`);
+      navigate(`/interview/${authorId}`);
     } catch (err) {
       console.log(err.message);
     }
@@ -93,15 +95,24 @@ function EditWishlist() {
 
   useEffect(() => {
     getJob();
+    
+    
   }, []);
 
   let newDate = "";
+  let newIntDate = "";
 
   if (job.dateApplied) {
     newDate = job.dateApplied.substring(0, 10);
   }
 
-  console.log(newDate);
+ 
+
+  if (job.dateInterview) {
+    newIntDate = job.dateInterview.substring(0, 10);
+  }
+
+ 
 
   const handleChange = (e) => {
     setOption(e.target.value);
@@ -109,10 +120,6 @@ function EditWishlist() {
 
   const handleCheckboxChange = () => {
     setShowInput(!showInput);
-  };
-
-  const handleWishCheckboxChange = () => {
-    setNoWishlist(!noWishlist);
   };
 
   const goBack = () => {
@@ -123,6 +130,22 @@ function EditWishlist() {
     return <div>Loading...</div>;
   }
 
+  const parseTimeString = (timeStr) => {
+    // Split the time string into hours, minutes, and period (AM/PM)
+    const [time, period] = timeStr.split(/([APM]+)/).filter(Boolean);
+
+    // Split the time into hours and minutes
+    const [hours, minutes] = time.split(":").map((num) => parseInt(num, 10));
+
+    return { hours, minutes, period };
+  };
+
+
+    const parsedTime = parseTimeString(intTime);
+
+ 
+
+
   return (
     <>
       <h1>Edit Post</h1>
@@ -131,7 +154,7 @@ function EditWishlist() {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <h2 className="text-3xl font-bold leading-7 text-gray-900 mb-6">
-                Edit wishlist job application
+                Edit job application
               </h2>
               
 
@@ -237,24 +260,6 @@ function EditWishlist() {
                     <option value={3}>Low</option>
                   </select>
                 </div>
-                <div className="col-span-full">
-                  <label className="inline-flex items-center ">
-                    <input
-                      type="checkbox"
-                      id="showInput"
-                      className="form-checkbox rounded-md h-5 w-5 text-sky-700"
-                      checked={noWishlist}
-                      onChange={handleWishCheckboxChange}
-                      ref={wishcheckboxRef}
-                    />
-                    <span className="ml-2 text-gray-700">
-                      Move from wishlist
-                    </span>
-                  </label>
-                </div>
-
-                {noWishlist && (
-                  <>
 
                 <div className="sm:col-span-3">
                   <label
@@ -337,7 +342,7 @@ function EditWishlist() {
                         htmlFor="date"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Date of interview
+                        Date of the next interview
                       </label>
                       <div className="mt-2">
                         <input
@@ -347,6 +352,8 @@ function EditWishlist() {
                           autoComplete="date"
                           className="block w-full rounded-md border-0 py-1.5 leading-[1.6] outline-none transition-all duration-200 ease-linear text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                           ref={intdateRef}
+                          defaultValue={newIntDate}
+                          onChange={(e) => setDefaultIntDate(e.target.value)}
                         />
                       </div>
                     </div>
@@ -360,6 +367,7 @@ function EditWishlist() {
                       </label>
                       <div className="flex flex-row items-center sm:col-span-3 ">
                         <select
+                          defaultValue={parsedTime.hours}
                           ref={intHoursRef}
                           name="hours"
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2"
@@ -380,6 +388,7 @@ function EditWishlist() {
                         <span className="text-xl mx-1">:</span>
                         <select
                           ref={intMinsRef}
+                          defaultValue={parsedTime.minutes}
                           name="minutes"
                           className="mr-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2"
                         >
@@ -397,6 +406,7 @@ function EditWishlist() {
                         </select>
                         <select
                           ref={intAmsRef}
+                          defaultValue={parsedTime.period}
                           name="ampm"
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2"
                         >
@@ -415,6 +425,7 @@ function EditWishlist() {
                       </label>
                       <select
                         ref={intTypeRef}
+                        defaultValue={job.typeInterview}
                         id="priority"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 "
                       >
@@ -435,9 +446,26 @@ function EditWishlist() {
                         <option value="Other">Other</option>
                       </select>
                     </div>
+                    <div className="sm:col-span-3">
+                  <label
+                    htmlFor="Contact"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Address or meeting link
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="Address"
+                      id="lastNRoleame"
+                      autoComplete="Address"
+                      className="block w-full rounded-md border-0 py-1.5 leading-[1.6] outline-none transition-all duration-200 ease-linear text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                      ref={addressRef}
+                      defaultValue={job.intAddress}
+                    />
+                  </div>
+                </div>
                   </>
-                )}
-                </>
                 )}
               </div>
             </div>
@@ -465,4 +493,4 @@ function EditWishlist() {
   );
 }
 
-export default EditWishlist;
+export default EditWithInterview;

@@ -30,6 +30,24 @@ function Wishlist() {
     getJobs();
   }, []);
 
+  async function archiveJob(jobId) {
+
+    try {
+      console.log(jobId)
+      let resp = await axios.put(`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      console.log(resp)
+      getJobs();
+    
+    } catch (err) {
+      console.log("!", err.message);
+      navigate(`/index/${authorId}`);
+    }
+  }
+
   return (
     <div className="mt-28 flex flex-col sm:items-center">
       <div className="flex justify-center  w-full sm:mx-12 pb-6">
@@ -115,7 +133,7 @@ function Wishlist() {
                 "bg-gradient-to-r from-green-100 via-white via-38% hover:from-green-100  hover:via-slate-200";
             }
 
-            if (item.wishlist) {
+            if (item.wishlist && !item.archived) {
               return (
                 <tr key={index} className={gradient}>
                   <td className="px-6 py-3 px-6 py-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent ">
@@ -193,7 +211,7 @@ function Wishlist() {
                 "bg-gradient-to-r from-green-100 via-white via-38% hover:from-green-100  hover:via-slate-200";
             }
 
-            if (item.wishlist) {
+            if (item.wishlist && !item.archived) {
               return (
                 <tr key={index} className={gradient}>
                   <td className="px-6 py-3 px-6 py-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent ">
@@ -244,7 +262,7 @@ function Wishlist() {
                         style="light"
                       >
                         <Link
-                          to={`../../edit/${authorId}/${item._id}`}
+                          to={`../../editwish/${authorId}/${item._id}`}
                           className="p-1 cursor:pointer"
                         >
                           <svg
@@ -268,6 +286,7 @@ function Wishlist() {
                         <Link
                           data-tooltip-target="tooltip-top"
                           className=" p-1 cursor:pointer"
+                          onClick={() => archiveJob(item._id)}
                         >
                           <svg
                             className="w-5 h-5 mb-0 text-xs leading-tight text-slate-400 hover:text-red-400"

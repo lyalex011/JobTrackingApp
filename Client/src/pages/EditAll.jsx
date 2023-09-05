@@ -4,8 +4,10 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 
 function EditAll() {
   const [defaultDate, setDefaultDate] = useState("");
+  const [defautIntDate, setDefaultIntDate] = useState("");
   const [option, setOption] = useState();
-  const [showInput, setShowInput] = useState(false);
+
+  const [showInput, setShowInput] = useState();
   const [job, setJob] = useState({});
   const { authorId, id } = useParams();
   const navigate = useNavigate();
@@ -23,10 +25,10 @@ function EditAll() {
   const intAmsRef = useRef();
   const intTypeRef = useRef();
   const commentRef = useRef();
+  const addressRef = useRef()
 
   async function getJob() {
     try {
-      console.log("id: ", authorId, id);
       const response = await axios.get(`/api/jobs/${authorId}/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -34,6 +36,9 @@ function EditAll() {
       });
 
       setJob(response.data);
+      
+        setShowInput(response.data.yesInterview);
+
     } catch (err) {
       console.log(err.message);
       navigate(`/index/${authorId}`);
@@ -63,6 +68,7 @@ function EditAll() {
             intAmsRef.current.value,
           typeInterview: intTypeRef.current.value,
           dateInterview: intdateRef.current.value,
+          intAddress: addressRef.current.value,
         };
       } else {
         updateJob = {
@@ -89,15 +95,24 @@ function EditAll() {
 
   useEffect(() => {
     getJob();
+    
+    
   }, []);
 
   let newDate = "";
+  let newIntDate = "";
 
   if (job.dateApplied) {
     newDate = job.dateApplied.substring(0, 10);
   }
 
-  console.log(newDate);
+ 
+
+  if (job.dateInterview) {
+    newIntDate = job.dateInterview.substring(0, 10);
+  }
+
+ 
 
   const handleChange = (e) => {
     setOption(e.target.value);
@@ -115,6 +130,11 @@ function EditAll() {
     return <div>Loading...</div>;
   }
 
+
+
+ 
+
+
   return (
     <>
       <h1>Edit Post</h1>
@@ -123,11 +143,9 @@ function EditAll() {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <h2 className="text-3xl font-bold leading-7 text-gray-900 mb-6">
-                EDit job application
+                Edit job application
               </h2>
-              <p className="mt-1 text-sm leading-6 text-gray-600">
-                You are only one step from taking control of your job search
-              </p>
+              
 
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-3">
@@ -313,7 +331,7 @@ function EditAll() {
                         htmlFor="date"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Date of interview
+                        Date of the next interview
                       </label>
                       <div className="mt-2">
                         <input
@@ -323,6 +341,8 @@ function EditAll() {
                           autoComplete="date"
                           className="block w-full rounded-md border-0 py-1.5 leading-[1.6] outline-none transition-all duration-200 ease-linear text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                           ref={intdateRef}
+                          defaultValue={newIntDate}
+                          onChange={(e) => setDefaultIntDate(e.target.value)}
                         />
                       </div>
                     </div>
@@ -356,6 +376,7 @@ function EditAll() {
                         <span className="text-xl mx-1">:</span>
                         <select
                           ref={intMinsRef}
+                          
                           name="minutes"
                           className="mr-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2"
                         >
@@ -373,6 +394,7 @@ function EditAll() {
                         </select>
                         <select
                           ref={intAmsRef}
+                          
                           name="ampm"
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2"
                         >
@@ -391,6 +413,7 @@ function EditAll() {
                       </label>
                       <select
                         ref={intTypeRef}
+                        defaultValue={job.typeInterview}
                         id="priority"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 "
                       >
@@ -411,6 +434,25 @@ function EditAll() {
                         <option value="Other">Other</option>
                       </select>
                     </div>
+                    <div className="sm:col-span-3">
+                  <label
+                    htmlFor="Contact"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Address or meeting link
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="Address"
+                      id="lastNRoleame"
+                      autoComplete="Address"
+                      className="block w-full rounded-md border-0 py-1.5 leading-[1.6] outline-none transition-all duration-200 ease-linear text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                      ref={addressRef}
+                      defaultValue={job.intAddress}
+                    />
+                  </div>
+                </div>
                   </>
                 )}
               </div>

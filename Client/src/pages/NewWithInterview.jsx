@@ -2,10 +2,10 @@ import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-function New({ user }) {
+function NewWithInterview({ user }) {
   const [defaultDate, setDefaultDate] = useState("");
   const [option, setOption] = useState(2);
-  const [showInput, setShowInput] = useState(false);
+  const [showInput, setShowInput] = useState(true);
   const [time, setTime] = useState([]);
 
   useEffect(() => {
@@ -426,4 +426,4 @@ function New({ user }) {
   );
 }
 
-export default New;
+export default NewWithInterview;

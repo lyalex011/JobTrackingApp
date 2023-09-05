@@ -54,6 +54,9 @@ const jobSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  intAddress: {
+    type: String
+  },
   user: { 
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'User'}

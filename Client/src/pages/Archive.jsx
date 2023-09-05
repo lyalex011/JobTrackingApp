@@ -255,13 +255,12 @@ function Archive({user}) {
                     <p className="mb-0 text-xs leading-tight text-slate-400">
                       {item.wishlist ? (
                         
-                            <p>Wishlist</p>
-                          
-                          
+                            <>Wishlist</>
+
                         
-                      ) : (
-                        <>All active aplications</>
-                      )}
+                      ) : item.yesInterview ? (
+                        <>Interview aplications</>
+                      ) : <>All aplications</>}
                     </p>
                   </td>
 
