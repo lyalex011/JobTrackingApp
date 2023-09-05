@@ -2,7 +2,7 @@ const User = require('../models/userModel')
 
 //show
 module.exports.show = async (req, res) => {
-    console.log('GET: /user')
+
     try {
         const foundUser = await User.findById(req.id)
 
@@ -30,7 +30,7 @@ module.exports.delete = async (req, res) => {
 
 // update
 module.exports.update = async (req, res) => {
-    console.log('PUT: /user')
+
     try {
         const foundUser = await User.findByIdAndUpdate(req.id)
         

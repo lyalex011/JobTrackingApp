@@ -5,7 +5,7 @@ import BackToDash from "../copmonents/BackToDash";
 import moment from "moment";
 import { Tooltip } from "flowbite-react";
 
-function Index({ user }) {
+function InterviewIndex({ user }) {
   let { authorId } = useParams();
 
   const [jobs, setJobs] = useState([]);
@@ -43,15 +43,16 @@ function Index({ user }) {
         <div className="flex justify-center sm:justify-between wrap w-full lg:w-9/12 xl:w-4/6 2xl:w-1/2  px-6 lg:px-1 xl:px-0">
           <div className="flex justify-between">
             <BackToDash />
+            <Link
+                  to="/new"
+                  className="text-sm flex flex-row align-middle cursor:pointer "
+                >
             <button
               type="button"
               className="bg-gray-300 text-gray-700 shadow-md rounded-r-md py-2 border-l-1 border-blue-950 hover:bg-blue-950 hover:text-white px-3"
             >
               <div className="flex flex-row align-middle hover:text-white font-bold">
-                <Link
-                  to="/new"
-                  className="text-sm flex flex-row align-middle cursor:pointer "
-                >
+                
                   <span className="mr-2">Add</span>
                   <svg
                     className="w-5 ml-2 "
@@ -63,9 +64,10 @@ function Index({ user }) {
                     <path d="M.188 5H5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707c-.358.362-.617.81-.753 1.3C.148 5.011.166 5 .188 5ZM14 8a6 6 0 1 0 0 12 6 6 0 0 0 0-12Zm2 7h-1v1a1 1 0 0 1-2 0v-1h-1a1 1 0 0 1 0-2h1v-1a1 1 0 0 1 2 0v1h1a1 1 0 0 1 0 2Z" />
                     <path d="M6 14a7.969 7.969 0 0 1 10-7.737V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H.188A.909.909 0 0 1 0 6.962V18a1.969 1.969 0 0 0 1.933 2h6.793A7.976 7.976 0 0 1 6 14Z" />
                   </svg>
-                </Link>
+                
               </div>
             </button>
+            </Link>
           </div>
           <div className="hidden sm:block">
             <div className="flex flex-row gap-0.5 mt-2  ">
@@ -219,21 +221,9 @@ function Index({ user }) {
                           href={item.url}
                         >
                           Job listing
-                          <svg
-                            className="w-3 h-3 ml-2 mt-0.5"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 14 10"
-                          >
-                            <path
-                              stroke="currentColor"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M1 5h12m0 0L9 1m4 4L9 9"
-                            />
-                          </svg>
+                          <svg className="w-3 h-3 ml-2 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+  </svg>
                         </a>
                       ) : (
                         <>No link provided</>
@@ -347,4 +337,4 @@ function Index({ user }) {
   );
 }
 
-export default Index;
+export default InterviewIndex;

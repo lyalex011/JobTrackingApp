@@ -73,7 +73,7 @@ function New({ user }) {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      navigate(`/dash`);
+      navigate(`/index/${user}`);
     } catch (err) {
       console.log(err.message);
     }

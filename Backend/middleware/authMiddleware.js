@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 
 function authorize(req, res, next) {
-    console.log('authorizing...')
+
 
     try {
         // 1. Check if the request has a token (in the Authorization header)
@@ -12,13 +12,13 @@ function authorize(req, res, next) {
             return res.status(403).json({ error: 'No token provided'})
         }
         token = token.replace("Bearer ", "")
-        console.log("New token: ", token)
+
 
         // 2. Check that the token is valid and not expired
 
         const payload = jwt.verify(token, process.env.JWT_SECRET)
         
-        console.log(payload)
+   
 
         if (payload.error) {
             return res.status(403).json({ error: payload.error })

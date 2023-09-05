@@ -5,10 +5,10 @@ const Jobs = require('../models/jobModel')
 module.exports.index = async (req,res) => {
     try{
         const authorId = req.params.authorId;
-        console.log("index:", authorId)
+
         //Find the job post by the author.
         const jobs = await Jobs.find({ user: authorId }).sort({createdAt: -1})
-        console.log(jobs)
+
         res.json(jobs)
     }catch(error){
         console.log(error.message)
@@ -27,12 +27,27 @@ module.exports.delete = async (req, res) => {
         res.json({error: error.message})
     }
 }
-// Update function export to update current post
+
 module.exports.update = async (req,res) => {
     try{
-        //Finds the post by ID and updates the data
-        const updateJob = await Jobs.findOneAndUpdate({ _id: req.params.id, user: req.params.authorId }, req.body, { new: true })
-        console.log("Update:!!!!!!!!!!!!", updateJob)
+
+        const updateJob = await Jobs.findOneAndUpdate({ _id: req.params.id, user: req.params.authorId }, req.body)
+        console.log("Update@:!!!!!!!!!!!!", updateJob)
+        res.json(updateJob)
+    }catch(error){
+        console.log(error.message)
+        res.json({error: error.message})
+    }
+}
+
+module.exports.archive = async (req,res) => {
+    
+    try{
+
+        const updateJob = await Jobs.findById(req.params.id)
+        updateJob.archived = !updateJob.archived
+        await updateJob.save()
+        console.log("Update222:!!!!!!!!!!!!", updateJob)
         res.json(updateJob)
     }catch(error){
         console.log(error.message)

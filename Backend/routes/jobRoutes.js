@@ -12,8 +12,12 @@ router.get('/:authorId', authorize, jobController.index)
 // delete
 router.delete('/:authorId/:id', authorize, jobController.delete)
 
+// archive
+router.put('/archive/:authorId/:id', authorize, jobController.archive)
+
 // update
 router.put('/:authorId/:id', authorize, jobController.update)
+
 
 // create
 router.post('/', authorize, jobController.create)
