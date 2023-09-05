@@ -17,6 +17,19 @@ module.exports.index = async (req,res) => {
 }
 
 // Delete function export to delete post 
+module.exports.deleteMany = async (req, res) => {
+    try{
+        console.log("hi!")
+        //Finds data by ID and delete the query posts
+        const jobs = await Jobs.deleteMany({user: req.params.authorId, archived: true})
+        res.json({message: 'Sucessfully Deleted'})
+    }catch(error){
+        console.log(error.message)
+        res.json({error: error.message})
+    }
+}
+
+// Delete function export to delete post 
 module.exports.delete = async (req, res) => {
     try{
         //Finds data by ID and delete the query posts
@@ -73,6 +86,18 @@ module.exports.show = async (req, res) => {
         // This will get the data from the database by search for the ID
         const job = await Jobs.findById(req.params.id)
         res.status(200).json(job)
+    }catch(error){
+        console.log(error.message)
+        res.status(404).json({error: error.message})
+    }
+}
+
+// Show function export to display post
+module.exports.count = async (req, res) => {
+    try{
+        
+        const count = await Jobs.find(req.body).count()
+        res.status(200).json(count)
     }catch(error){
         console.log(error.message)
         res.status(404).json({error: error.message})

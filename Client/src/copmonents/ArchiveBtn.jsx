@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ArchiveBtn({user}) {
+function ArchiveBtn({user, count}) {
   return (
     <div className="bg-gray-300 shadow rounded py-0.5 px-6 flex justify-center items-center hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
       <Link to={`/archive/${user}`}>
@@ -8,7 +8,7 @@ function ArchiveBtn({user}) {
         <div className="relative py-2">
           <div className="t-0 absolute bottom-8 left-24">
             <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
-              3
+              {count}
             </p>
           </div>
           <div className="flex flex-row gap-3 items-center text-gray-700 font-bold">

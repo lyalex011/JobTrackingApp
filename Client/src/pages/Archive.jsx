@@ -34,6 +34,7 @@ function Archive({user}) {
   async function restoreJob(jobId) {
 
     try {
+      
       console.log(jobId)
       let resp = await axios.put(`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
         headers: {
@@ -44,6 +45,40 @@ function Archive({user}) {
     
     } catch (err) {
       console.log( err.message);
+      navigate(`/archive/${authorId}`);
+    }
+  }
+
+  async function deleteJob(jobId) {
+
+    try {
+      console.log(jobId)
+      let resp = await axios.delete(`/api/jobs/${authorId}/${jobId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      getJobs();
+    
+    } catch (err) {
+      console.log(err.message);
+      navigate(`/archive/${authorId}`);
+    }
+  }
+
+  async function deleteAll() {
+
+    try {
+      
+      let resp = await axios.delete(`/api/jobs/${authorId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      getJobs();
+    
+    } catch (err) {
+      console.log(err.message);
       navigate(`/archive/${authorId}`);
     }
   }
@@ -62,7 +97,7 @@ function Archive({user}) {
           <div className="flex justify-between">
             <BackToDash />
             <Link
-                  
+                  onClick={deleteAll}
                   className="text-sm flex flex-row align-middle cursor:pointer "
                 >
             <button
@@ -176,7 +211,7 @@ function Archive({user}) {
                         <Link
                           data-tooltip-target="tooltip-top"
                           className=" p-1 cursor:pointer" 
-                          onClick={() => archiveJob(item._id)}
+                          onClick={() => deleteJob(item._id)}
                         >
                           <svg
                             className="w-5 h-5 mb-0 text-xs leading-tight text-slate-400 hover:text-red-400"
@@ -296,7 +331,7 @@ function Archive({user}) {
                         <Link
                           data-tooltip-target="tooltip-top"
                           className=" p-1 cursor:pointer" 
-                          onClick={() => archiveJob(item._id)}
+                          onClick={() => deleteJob(item._id)}
                         >
                           <svg
                             className="w-5 h-5 mb-0 text-xs leading-tight text-slate-400 hover:text-red-400"

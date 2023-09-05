@@ -1,10 +1,88 @@
-
+import { useState, useEffect } from "react";
 import ArchiveBtn from "../copmonents/ArchiveBtn";
 import SettingsButton from "../copmonents/SettingsButton";
 import Folders from "../copmonents/Folders";
+import axios from "axios";
 
 
-function Dashboard({user}) {
+
+
+
+
+
+function Dashboard({user, userName}) {
+ 
+
+const [archiveCount, setArchiveCount] = useState()
+const [interviewCount, setInterviewCount] = useState()
+const [wishlistCount, setWishlistCount] = useState()
+const [allCount, setAllCount] = useState()
+
+
+async function getCount(type) {
+  let body = {user: user._id,
+  }
+  if(type === "archive") {
+    body.archived = true
+  }
+  if(type === "interview") {
+    body.yesInterview = true
+  }
+  if(type === "wishlist") {
+    body.wishlist = true
+  }
+  if(type === "all") {
+    body.wishlist = false,
+    body.archived = false
+
+  }
+  try {
+    const response = await axios.post(`/api/jobs/count`, body, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+
+    
+    if(type === "archive") {
+      body.archived = true
+      setArchiveCount(response.data);
+    }
+    if(type === "interview") {
+      body.yesInterview = true
+      setInterviewCount(response.data);
+    }
+    if(type === "wishlist") {
+      body.wishlist = true
+      setWishlistCount(response.data);
+    }
+    if(type === "all") {
+      body.wishlist = false,
+      body.archived = false
+      setAllCount(response.data);
+    }
+    
+  } catch (err) {
+    console.log(err.message);
+  }
+}
+
+  useEffect(() => {
+    if(user.id){
+      getCount("archive")
+      getCount("interview")
+      getCount("wishlist")
+      getCount("all")
+    }
+  }, [user]);
+
+
+
+
+
+
+
+
   return (
     <div className="mt-12 sm:mt-24 flex flex-col items-center">
       <div className="lg:w-4/6">
@@ -19,14 +97,14 @@ function Dashboard({user}) {
   </svg>
               </div>
               <div className="flex flex-col mb-5 sm:mb-1 sm:mr-8 items-center sm:items-start justify-center flex-grow sm:ml-1 text-gray-700 font-bold">
-                <div className="">Welcome, Alex</div>
+                <div className="">Welcome, {userName}</div>
                 <div className="text-xs whitespace-nowrap">
-                  28 active applications, 2 with interview
+                  {allCount} active applications, {interviewCount} with interview, {wishlistCount} wishlist items
                 </div>
               </div>
               <div className=" flex items-center gap-4 flex-none text-white">
               <SettingsButton/>
-              <ArchiveBtn user={user}/>
+              <ArchiveBtn user={user.id} count={archiveCount}/>
                 
                 </div>
               </span>
@@ -37,7 +115,7 @@ function Dashboard({user}) {
         </div>
       </div>
 
-      <Folders user={user}/>
+      <Folders user={user.id}/>
 
     </div>
   );

@@ -263,7 +263,7 @@ function Index({ user }) {
                         animation="duration-500"
                         style="light"
                       >
-                        <Link className="p-1 cursor:pointer">
+                        <Link className="p-1 cursor:pointer" to={`/show/${authorId}/${item._id}`}>
                           <svg
                             className="w-5 h-5 mb-0 text-xs leading-tight text-slate-400 hover:text-sky-700"
                             aria-hidden="true"
@@ -281,7 +281,7 @@ function Index({ user }) {
                         style="light"
                       >
                         <Link
-                          to={`../../edit/${authorId}/${item._id}`}
+                          to={`/edit/${authorId}/${item._id}`}
                           className="p-1 cursor:pointer"
                         >
                           <svg

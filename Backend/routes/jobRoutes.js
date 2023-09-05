@@ -6,8 +6,16 @@ const jobController = require('../controllers/jobController')
 
 const { authorize } = require('../middleware/authMiddleware')
 
+
+
 // index
 router.get('/:authorId', authorize, jobController.index)
+
+//count
+router.post('/count', authorize, jobController.count)
+
+// deleteMany
+router.delete('/:authorId', authorize, jobController.deleteMany)
 
 // delete
 router.delete('/:authorId/:id', authorize, jobController.delete)
