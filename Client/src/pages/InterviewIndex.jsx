@@ -161,7 +161,7 @@ function InterviewIndex({ user }) {
 
                   <td className="px-2 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
                     <Link to={`/showinterview/${authorId}/${item._id}`}>
-                    <h6 className="mb-0 text-sm leading-normal font-bold ">
+                    <h6 className="mb-0 text-xs leading-normal font-bold ">
                           {item.typeInterview}
                         </h6>
                     <p className="mb-0 text-xs leading-tight  text-slate-400">

@@ -420,19 +420,19 @@ function EditWishlist() {
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 "
                       >
                         <option value="Phone screen">Phone screen</option>
-                        <option value="Hiring manager interview">
+                        <option value="Hiring manager">
                           Hiring manager interview
                         </option>
-                        <option value="Behavioral interview">
+                        <option value="Behavioral">
                           Behavioral interview{" "}
                         </option>
-                        <option value="Second or panel interview">
+                        <option value="Second or panel">
                           Second or panel interview
                         </option>
-                        <option value="Technical interview">
+                        <option value="Technical">
                           Technical interview{" "}
                         </option>
-                        <option value="Group interview">Group interview</option>
+                        <option value="Group">Group interview</option>
                         <option value="Other">Other</option>
                       </select>
                     </div>
