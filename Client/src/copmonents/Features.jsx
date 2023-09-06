@@ -43,7 +43,7 @@ function Features() {
     <div className="md:w-3/12 h-full bg-white p-6 shadow-xl rounded-2xl">
     <article>
     <div className="flex items-center mb-4 space-x-4">
-        <img className="w-12 h-12 rounded-full object-cover" src="/public/images/profile-picture-5.webp" alt=""/>
+        <img className="w-12 h-12 rounded-full object-cover" src="/profile-picture-5.webp" alt="profile"/>
         <div className="space-y-1 font-medium dark:text-white">
             <p>Jese Leos </p>
         </div>
@@ -75,7 +75,7 @@ function Features() {
     <div className="md:w-3/12 bg-white p-6 shadow-xl rounded-2xl">
     <article>
     <div className="flex items-center mb-4 space-x-4">
-        <img className="w-12 h-12 rounded-full object-cover" src="/public/images/profile-picture-6.webp" alt=""/>
+        <img className="w-12 h-12 rounded-full object-cover" src="/profile-picture-6.webp" alt="profile"/>
         <div className="space-y-1 font-medium dark:text-white">
             <p>Diana L.</p>
         </div>
@@ -107,7 +107,7 @@ function Features() {
     <div className=" md:w-3/12 bg-white p-6 shadow-xl rounded-2xl">
     <article>
     <div className="flex items-center mb-4 space-x-4">
-        <img className="w-12 h-12 rounded-full object-cover" src="/public/images/profile-picture-7.webp" alt=""/>
+        <img className="w-12 h-12 rounded-full object-cover" src="/profile-picture-7.webp" alt="profile"/>
         <div className="space-y-1 font-medium dark:text-white">
             <p>Alex W. </p>
         </div>

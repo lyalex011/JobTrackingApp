@@ -9,7 +9,7 @@ function Hero({user, setUser}) {
   };
 
 
-  const backgroundImageUrl = "/public/images/unsplash.jpg";
+  const backgroundImageUrl = "/unsplash.jpg";
 
 
   return (
@@ -83,7 +83,7 @@ function Hero({user, setUser}) {
         
           <img
             className="block w-auto h-2/6 xl:h-2/5 hidden  lg:block  shrink-0"
-            src="../public/images/herobg.png"
+            src="/herobg.png"
             alt="bg-img"
           />
         

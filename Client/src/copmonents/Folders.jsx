@@ -14,8 +14,8 @@ function Folders({user}) {
               
                 <img
                   className="my-3 rounded-t-lg"
-                  src="/public/images/wishlist.jpg"
-                  alt=""
+                  src="/wishlist.jpg"
+                  alt="wishlist"
                 />
               
               <div className="p-5 mt-2">
@@ -35,8 +35,8 @@ function Folders({user}) {
               
                 <img
                   className="rounded-t-lg"
-                  src="/public/images/all.jpg"
-                  alt=""
+                  src="/all.jpg"
+                  alt="all"
                 />
               
               <div className="p-5 mt-3">
@@ -58,8 +58,8 @@ function Folders({user}) {
               
                 <img
                   className="h-1/2 object-fill rounded-t-lg"
-                  src="/public/images/int.jpg"
-                  alt=""
+                  src="/int.jpg"
+                  alt="interview"
                 />
             
               <div className="p-5 mt-4">
