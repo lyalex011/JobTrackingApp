@@ -20,6 +20,7 @@ import EditWithInterview from './pages/EditWithInterview';
 import NewWithInterview from './pages/NewWithInterview';
 import Show from './pages/Show';
 import ShowInterview from './pages/showInterview';
+import baseURL from './Api';
 
 function App() {
   const [user, setUser] = useState({})
@@ -28,7 +29,7 @@ function App() {
 
   async function getUser(token) {
     try {
-      const response = await axios.get('/api/user', {
+      const response = await axios.get(baseURL+'/api/user', {
         headers: {
           Authorization: `Bearer ${token}`
         }

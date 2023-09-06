@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link, useParams } from "react-router-dom";
+import baseURL from "../Api";
 
 import moment from "moment";
 
@@ -16,7 +17,7 @@ function Show() {
 
   async function getOneJob() {
     try {
-      const response = await axios.get(`/api/jobs/${authorId}/${id}`, {
+      const response = await axios.get(baseURL+`/api/jobs/${authorId}/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -38,7 +39,7 @@ function Show() {
 
     try {
       console.log(jobId)
-      let resp = await axios.put(`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
+      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -59,7 +60,7 @@ async function archiveJob(jobId) {
 
     try {
       
-      let resp = await axios.put(`/api/jobs/archive/${authorId}/${jobId}`, job, {
+      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, job, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

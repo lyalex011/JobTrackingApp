@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import baseURL from "../Api";
 
 function NewWithInterview({ user }) {
   const [defaultDate, setDefaultDate] = useState("");
@@ -70,7 +71,7 @@ function NewWithInterview({ user }) {
           user: user,
         };
       }
-      await axios.post(`/api/jobs`, newJob, {
+      await axios.post(baseURL+`/api/jobs`, newJob, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

@@ -3,6 +3,7 @@ import ArchiveBtn from "../copmonents/ArchiveBtn";
 import SettingsButton from "../copmonents/SettingsButton";
 import Folders from "../copmonents/Folders";
 import axios from "axios";
+import baseURL from "../Api";
 
 
 
@@ -37,7 +38,7 @@ async function getCount(type) {
 
   }
   try {
-    const response = await axios.post(`/api/jobs/count`, body, {
+    const response = await axios.post(baseURL+`/api/jobs/count`, body, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link, useParams } from "react-router-dom";
+import baseURL from "../Api";
 
 function EditAll() {
   const [defaultDate, setDefaultDate] = useState("");
@@ -29,7 +30,7 @@ function EditAll() {
 
   async function getJob() {
     try {
-      const response = await axios.get(`/api/jobs/${authorId}/${id}`, {
+      const response = await axios.get(baseURL+`/api/jobs/${authorId}/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -82,7 +83,7 @@ function EditAll() {
           comments: commentRef.current.value,
         };
       }
-      await axios.put(`/api/jobs/${authorId}/${id}`, updateJob, {
+      await axios.put(baseURL+`/api/jobs/${authorId}/${id}`, updateJob, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

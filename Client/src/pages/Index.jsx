@@ -4,6 +4,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import BackToDash from "../copmonents/BackToDash";
 import moment from "moment";
 import { Tooltip } from "flowbite-react";
+import baseURL from "../Api";
 
 function Index({ user }) {
   let { authorId } = useParams();
@@ -14,7 +15,7 @@ function Index({ user }) {
 
   async function getJobs() {
     try {
-      const response = await axios.get(`/api/jobs/${authorId}`, {
+      const response = await axios.get(baseURL+`/api/jobs/${authorId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -35,7 +36,7 @@ function Index({ user }) {
 
     try {
       console.log(jobId)
-      let resp = await axios.put(`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
+      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
