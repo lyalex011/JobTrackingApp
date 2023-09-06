@@ -137,7 +137,7 @@ function Index({ user }) {
               return (
                 <tr key={index} className={gradient}>
                   <td className="px-6 py-3 px-6 py-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent ">
-                    <Link>
+                    <Link to={`/show/${authorId}/${item._id}`}>
                       <div className="flex px-2 py-1">
                         <div className="flex flex-col justify-center">
                           <h6 className="mb-0 text-sm leading-normal font-bold underline">
@@ -148,7 +148,7 @@ function Index({ user }) {
                     </Link>
                   </td>
                   <td className="px-6 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                    <Link>
+                    <Link to={`/show/${authorId}/${item._id}`}>
                       <div className="flex px-2 py-1">
                         <div className="flex flex-col justify-center">
                           <p className="mb-0 text-xs leading-tight font-bold text-slate-500 underline">
@@ -160,7 +160,7 @@ function Index({ user }) {
                   </td>
 
                   <td className="px-6 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                    <Link>
+                    <Link to={`/show/${authorId}/${item._id}`}>
                       <p className="mb-0 text-xs leading-tight  text-slate-400 ">
                         {date}
                       </p>

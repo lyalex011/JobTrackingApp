@@ -21,6 +21,7 @@ import NewWithInterview from './pages/NewWithInterview';
 import Show from './pages/Show';
 import ShowInterview from './pages/ShowInterviewI';
 import baseURL from './Api';
+import WishShow from './pages/WishShow';
 
 function App() {
   const [user, setUser] = useState({})
@@ -67,6 +68,7 @@ let loggedIn_id = user.id
           <Route path="/dash" element={<Dashboard user={user} userName={loggedIn} />}/>
           <Route path="/new" element={<New user={loggedIn_id}/>}/>
           <Route path="/show/:authorId/:id" element={<Show />}/>
+          <Route path="/wishshow/:authorId/:id" element={<WishShow />}/>
           <Route path="/showinterview/:authorId/:id" element={<ShowInterview />}/>
           <Route path="/newwithinterview" element={<NewWithInterview user={loggedIn_id}/>}/>
           <Route path="/additem" element={<NewWishlistItem user={loggedIn_id}/>}/>

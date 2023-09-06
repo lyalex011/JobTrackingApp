@@ -136,8 +136,8 @@ function InterviewIndex({ user }) {
             if (item.yesInterview && !item.archived && !item.wishlist) {
               return (
                 <tr key={index} className={gradient}>
-                  <td className="px-6 py-3 px-6 py-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent ">
-                    <Link>
+                  <td className="px-2 py-3 px-6 py-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent ">
+                    <Link to={`/showinterview/${authorId}/${item._id}`}>
                       <div className="flex px-2 py-1">
                         <div className="flex flex-col justify-center">
                           <h6 className="mb-0 text-sm leading-normal font-bold underline">
@@ -147,8 +147,8 @@ function InterviewIndex({ user }) {
                       </div>
                     </Link>
                   </td>
-                  <td className="px-6 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                    <Link>
+                  <td className="px-2 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
+                    <Link to={`/showinterview/${authorId}/${item._id}`}>
                       <div className="flex px-2 py-1">
                         <div className="flex flex-col justify-center">
                           <p className="mb-0 text-xs leading-tight font-bold text-slate-500 underline">
@@ -159,8 +159,8 @@ function InterviewIndex({ user }) {
                     </Link>
                   </td>
 
-                  <td className="px-6 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                    <Link>
+                  <td className="px-2 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
+                    <Link to={`/showinterview/${authorId}/${item._id}`}>
                     <h6 className="mb-0 text-sm leading-normal font-bold ">
                           {item.typeInterview}
                         </h6>
