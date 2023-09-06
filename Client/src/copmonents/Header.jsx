@@ -16,7 +16,7 @@ function Header({ setUser, username }) {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link className="mb-0 text-lime-100" to="/">
-              <img className="w-5/12" src="/public/images/logo.png" alt="" />
+              <img className="w-5/12" src="/logo.png" alt="logo" />
             </Link>
 
             <div className="md:hidden z-40 ">
