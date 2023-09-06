@@ -38,13 +38,13 @@ function Show() {
   async function archiveJob(jobId) {
 
     try {
-      console.log(jobId)
-      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
+     
+      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, job, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      getJobs();
+      navigate(`/index/${authorId}`);
     
     } catch (err) {
       console.log("!", err.message);
@@ -56,22 +56,7 @@ function Show() {
     navigate(-1);
 }
 
-async function archiveJob(jobId) {
 
-    try {
-      c
-      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, job, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      
-    
-    } catch (err) {
-      console.log("!", err.message);
-      navigate(`/index/${authorId}`);
-    }
-  }
 
   let gradient = "";
 

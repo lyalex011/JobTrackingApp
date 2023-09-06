@@ -38,17 +38,17 @@ function WishShow() {
   async function archiveJob(jobId) {
 
     try {
-      console.log(jobId)
-      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
+      
+      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, job, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      getJobs();
-    
+      
+      navigate(`/wishlist/${authorId}`);
     } catch (err) {
       console.log("!", err.message);
-      navigate(`/index/${authorId}`);
+      navigate(`/wishlist/${authorId}`);
     }
   }
 
@@ -56,22 +56,7 @@ function WishShow() {
     navigate(-1);
 }
 
-async function archiveJob(jobId) {
 
-    try {
-      c
-      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, job, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      
-    
-    } catch (err) {
-      console.log("!", err.message);
-      navigate(`/index/${authorId}`);
-    }
-  }
 
   let gradient = "";
 

@@ -97,6 +97,9 @@ function Header({ setUser, username }) {
                     <Link
                       className="flex mr-4 text-lime-100 font-medium hover:text-blue-300"
                       to="/profile"
+                      onClick={() => {
+                        setNavbar(false);
+                      }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

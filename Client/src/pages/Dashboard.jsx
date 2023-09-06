@@ -27,10 +27,12 @@ async function getCount(type) {
     body.archived = true
   }
   if(type === "interview") {
-    body.yesInterview = true
+    body.yesInterview = true,
+    body.archived = false
   }
   if(type === "wishlist") {
-    body.wishlist = true
+    body.wishlist = true,
+    body.archived = false
   }
   if(type === "all") {
     body.wishlist = false,

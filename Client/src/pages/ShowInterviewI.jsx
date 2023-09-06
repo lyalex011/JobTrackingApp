@@ -39,13 +39,13 @@ function ShowInterview() {
 
     try {
       console.log(jobId)
-      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
+      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, job, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      getJobs();
-    
+      
+      navigate(`/interview/${authorId}`);
     } catch (err) {
       console.log("!", err.message);
       navigate(`/interview/${authorId}`);
@@ -56,22 +56,7 @@ function ShowInterview() {
     navigate(-1);
 }
 
-async function archiveJob(jobId) {
 
-    try {
-      
-      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, job, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      
-    
-    } catch (err) {
-      console.log("!", err.message);
-      navigate(`/interview/${authorId}`);
-    }
-  }
 
   let gradient = "";
 

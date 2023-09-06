@@ -76,7 +76,7 @@ function NewWithInterview({ user }) {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      navigate(`/index/${user}`);
+      navigate(`/interview/${user}`);
     } catch (err) {
       console.log(err.message);
     }

@@ -36,7 +36,7 @@ function Archive({user}) {
 
     try {
       
-      console.log(jobId)
+     
       let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
