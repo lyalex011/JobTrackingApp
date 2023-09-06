@@ -9,18 +9,18 @@ function Folders({user}) {
 
       <div className="flex flex-row justify-center items-center flex-wrap">
         <div>
-          <div className="relative inline-flex items-center justify-center p-2 m-5 overflow-hidden max-w-sm bg-gradient-to-br from-teal-300 to-lime-300 border rounded-2xl shadow hover:-translate-y-3 transition-transform duration-300">
+          <div className="relative inline-flex items-center justify-center p-2 m-5 overflow-hidden max-w-sm bg-gradient-to-br from-purple-300 to-rose-200 border rounded-2xl shadow hover:-translate-y-3 transition-transform duration-300">
           <Link to={`../wishlist/${user}`}><span className=" flex flex-col items-center justify-between relative  transition-all ease-in duration-75 bg-white shadow rounded-xl group-hover:bg-opacity-0">
               
                 <img
-                  className="rounded-t-lg"
-                  src="https://picsum.photos/id/426/250/150"
+                  className="my-3 rounded-t-lg"
+                  src="/public/images/wishlist.jpg"
                   alt=""
                 />
               
-              <div className="p-5 mt-6">
+              <div className="p-5 mt-2">
                 
-                  <h5 className="mb-6 text-2xl font-bold tracking-tight text-gray-900 ">
+                  <h5 className="mb-6 text-4xl font-bold  text-rose-400 ">
                     Wishlist
                   </h5>
                 
@@ -35,13 +35,13 @@ function Folders({user}) {
               
                 <img
                   className="rounded-t-lg"
-                  src="https://picsum.photos/id/426/250/150"
+                  src="/public/images/all.jpg"
                   alt=""
                 />
               
-              <div className="p-5 mt-6">
+              <div className="p-5 mt-3">
                 
-                <h5 className="mb-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-6 text-4xl font-bold tracking-tight text-emerald-300 ">
                     All applications
                   </h5>
                 
@@ -53,18 +53,18 @@ function Folders({user}) {
           </div>
         </div>
         <div>
-          <div className="relative inline-flex items-center justify-center p-2 m-5 overflow-hidden max-w-sm bg-gradient-to-br from-teal-300 to-lime-300 border rounded-2xl shadow hover:-translate-y-3 transition-transform duration-300">
+          <div className="relative inline-flex items-center justify-center p-2 m-5 overflow-hidden max-w-sm bg-gradient-to-br from-teal-300 to-sky-200 border rounded-2xl shadow hover:-translate-y-3 transition-transform duration-300">
           <Link to={`../interview/${user}`}> <span className=" flex flex-col items-center justify-between relative  transition-all ease-in duration-75 bg-white shadow rounded-xl group-hover:bg-opacity-0">
               
                 <img
-                  className="rounded-t-lg"
-                  src="https://picsum.photos/id/426/250/150"
+                  className="h-1/2 object-fill rounded-t-lg"
+                  src="/public/images/int.jpg"
                   alt=""
                 />
             
-              <div className="p-5 mt-6">
+              <div className="p-5 mt-4">
                 
-                  <h5 className="mb-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  <h5 className="mb-6 text-4xl font-bold tracking-tight text-sky-400 ">
                     With interview
                   </h5>
               

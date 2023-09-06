@@ -59,11 +59,11 @@ let loggedIn_id = user.id
   return (
     <>
     <BrowserRouter>
-    <div className='flex flex-col justify-between h-full' >
+    <div className='flex flex-col justify-between h-screen' >
         <Header username={loggedIn} setUser={setUser}/>
         <Routes>
-           <Route path="/" element={<Welcome user={loggedIn_id}/>}/> 
-          <Route path="/dash" element={<Dashboard user={user} userName={loggedIn}/>}/>
+           <Route path="/" element={<Welcome user={loggedIn_id} setUser={setUser}/>}/> 
+          <Route path="/dash" element={<Dashboard user={user} userName={loggedIn} />}/>
           <Route path="/new" element={<New user={loggedIn_id}/>}/>
           <Route path="/show/:authorId/:id" element={<Show />}/>
           <Route path="/showinterview/:authorId/:id" element={<ShowInterview />}/>

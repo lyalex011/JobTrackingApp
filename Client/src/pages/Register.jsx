@@ -48,7 +48,7 @@ function Register({ setUser }) {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mt-12">
       <form onSubmit={handleSubmit} className="w-3/4 sm:w-1/2 max-w-lg mt-32">
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">

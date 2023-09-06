@@ -1,14 +1,14 @@
 function Footer() {
     return ( 
-        <footer className="bg-neutral-200 text-center  inset-x-0 bottom-0 lg:text-left mt-24 py-1">
+        <footer className="bg-neutral-200 text-center  inset-x-0 bottom-0 lg:text-left mt-24 pt-1">
   <div className="p-4 text-center text-neutral-700 ">
-    © 2023, Job application tracker  
+    © 2023 Job application tracker  
     <ul className="flex flex-wrap items-center justify-center mt-3 text-sm font-medium text-gray-500  sm:mt-2">
         <li>
                 
             </li>
             <li >
-                <a href="https://github.com/lyalex011/image_generator" className=" hover:text-blue-500 "><svg
+                <a href="https://github.com/lyalex011/JobTrackingApp" className=" hover:text-blue-500 "><svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
                     fill="currentColor"

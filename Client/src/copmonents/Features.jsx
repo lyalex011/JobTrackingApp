@@ -40,7 +40,7 @@ function Features() {
       </div>
   </div>
   <div className="flex flex-wrap justify-center gap-24 items-center w-full p-8 py-24 sm:p-24 bg-blue-200 mt-12">
-    <div className="md:w-1/5 bg-white p-6 shadow-xl rounded-2xl">
+    <div className="md:w-3/12 h-full bg-white p-6 shadow-xl rounded-2xl">
     <article>
     <div className="flex items-center mb-4 space-x-4">
         <img className="w-12 h-12 rounded-full object-cover" src="/public/images/profile-picture-5.webp" alt=""/>
@@ -72,7 +72,7 @@ function Features() {
     
 </article>
     </div>
-    <div className="md:w-1/5 bg-white p-6 shadow-xl rounded-2xl">
+    <div className="md:w-3/12 bg-white p-6 shadow-xl rounded-2xl">
     <article>
     <div className="flex items-center mb-4 space-x-4">
         <img className="w-12 h-12 rounded-full object-cover" src="/public/images/profile-picture-6.webp" alt=""/>
@@ -104,7 +104,7 @@ function Features() {
     
 </article>
     </div>
-    <div className="md:w-1/5 bg-white p-6 shadow-xl rounded-2xl">
+    <div className=" md:w-3/12 bg-white p-6 shadow-xl rounded-2xl">
     <article>
     <div className="flex items-center mb-4 space-x-4">
         <img className="w-12 h-12 rounded-full object-cover" src="/public/images/profile-picture-7.webp" alt=""/>
@@ -131,7 +131,7 @@ function Features() {
         <h3 className="ml-2 text-sm font-semibold text-gray-900 dark:text-white">I like it!</h3>
     </div>
     
-    <p className="mb-2 text-gray-500 dark:text-gray-400">I can't thank this service enough for helping me stay organized during my job search. The instant notifications keep me on my toes, and the community support is fantastic. It's like having a job-seeking partner by your side!</p>
+    <p className="mb-2 text-gray-500 dark:text-gray-400">I can't thank this service enough for helping me stay organized during my job search. The app community support is fantastic. It's like having a job-seeking partner by your side!</p>
     
     
 </article>

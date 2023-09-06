@@ -47,7 +47,7 @@ function Login({ setUser }) {
 
   return (
     <div >
-        <div className="flex flex-row justify-center mt-24">
+        <div className="flex flex-row justify-center items-center mt-24">
       <form onSubmit={handleSubmit} className="w-3/4 sm:w-1/2 max-w-lg mt-32">
         <div className="space-y-12">
           <div className="border-b border-gray-150 pb-12">
@@ -125,7 +125,7 @@ function Login({ setUser }) {
         </div>
       </form>
      
-        <img className="hidden lg:block w-2/6" src="../../public/images/loginbg.avif" alt="" />
+        <img className="hidden lg:block w-1/2 mb-3" src="/public/images/all.avif" alt="" />
       
     </div>
     </div>

@@ -12,11 +12,11 @@ function Header({ setUser, username }) {
 
   return (
     <nav className="w-full opacity-100 bg-blue-950  shadow-lg top-0 fixed z-40">
-      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-4 z-40">
+      <div className="justify-between px-4 mx-auto lg:w-10/12 md:items-center md:flex md:px-4 z-40">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link className="mb-0 text-lime-100" to="/">
-              LOGO
+              <img className="w-5/12" src="/public/images/logo.png" alt="" />
             </Link>
 
             <div className="md:hidden z-40 ">
@@ -91,7 +91,7 @@ function Header({ setUser, username }) {
               {username ? (
                 <>
                   <li className="mr-4 text-blue-200 font-medium">
-                    Welcome, {username}!
+                    Welcome,&nbsp;{username}!
                   </li>
                   <li>
                     <Link
@@ -122,9 +122,9 @@ function Header({ setUser, username }) {
                   </li>
                   <li>
                     <Link onClick={logout} to="/">
-                      <button className=" relative inline-flex items-center justify-center p-0.5   overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 hover:text-black focus:ring-1 focus:outline-none focus:ring-lime-200 ">
+                      <button className=" relative inline-flex items-center justify-center p-0.5 shrink-0  overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 hover:text-black focus:ring-1 focus:outline-none focus:ring-lime-200 ">
                         <span className="relative px-3 py-1.5 transition-all ease-in duration-75 bg-sky-950  rounded-md group-hover:bg-opacity-0">
-                          Log Out
+                          Log&nbsp;Out
                         </span>
                       </button>
                     </Link>
