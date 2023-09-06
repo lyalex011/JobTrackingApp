@@ -22,6 +22,7 @@ import Show from './pages/Show';
 import ShowInterview from './pages/ShowInterviewI';
 import baseURL from './Api';
 import WishShow from './pages/WishShow';
+import Profile from './pages/Profile';
 
 function App() {
   const [user, setUser] = useState({})
@@ -67,6 +68,7 @@ let loggedIn_id = user.id
            <Route path="/" element={<Welcome user={loggedIn_id} setUser={setUser}/>}/> 
           <Route path="/dash" element={<Dashboard user={user} userName={loggedIn} />}/>
           <Route path="/new" element={<New user={loggedIn_id}/>}/>
+          <Route path="/profile" element={<Profile user={user}/>}/>
           <Route path="/show/:authorId/:id" element={<Show />}/>
           <Route path="/wishshow/:authorId/:id" element={<WishShow />}/>
           <Route path="/showinterview/:authorId/:id" element={<ShowInterview />}/>

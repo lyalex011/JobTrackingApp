@@ -295,8 +295,8 @@ function Archive({user}) {
 
                         
                       ) : item.yesInterview ? (
-                        <>Interview aplications</>
-                      ) : <>All aplications</>}
+                        <>Interview applications</>
+                      ) : <>All applications</>}
                     </p>
                   </td>
 

@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
+
+
 function SettingsButton() {
     return (
       <div className="bg-gray-300 shadow rounded py-0.5 px-6 flex justify-center items-center hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        <Link to="/profile">
         <button>
           <div className="relative py-2">
            
@@ -17,6 +21,7 @@ function SettingsButton() {
             
           </div>
         </button>
+        </Link>
       </div>
     );
   }

@@ -3,7 +3,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 
-function Profile({user}) {
+function EditProfile({user}) {
     const [showInput, setShowInput] = useState(false);
 
     const handleCheckboxChange = () => {
@@ -102,4 +102,4 @@ function Profile({user}) {
   );
 }
 
-export default Profile;
+export default EditProfile;

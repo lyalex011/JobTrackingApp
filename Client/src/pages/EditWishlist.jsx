@@ -249,7 +249,7 @@ function EditWishlist() {
                       ref={wishcheckboxRef}
                     />
                     <span className="ml-2 text-gray-700">
-                      Move from wishlist
+                      Move to Active applications
                     </span>
                   </label>
                 </div>
