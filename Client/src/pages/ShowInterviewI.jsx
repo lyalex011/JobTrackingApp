@@ -6,7 +6,7 @@ import baseURL from "../Api";
 import moment from "moment";
 
 
-function Show() {
+function ShowInterview() {
   let { authorId, id } = useParams();
 
   const [job, setJob] = useState({});
@@ -389,4 +389,4 @@ async function archiveJob(jobId) {
   );
 }
 
-export default Show;
+export default ShowInterview;
