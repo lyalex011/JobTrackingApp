@@ -19,7 +19,7 @@ import EditWishlist from './pages/EditWishlist';
 import EditWithInterview from './pages/EditWithInterview';
 import NewWithInterview from './pages/NewWithInterview';
 import Show from './pages/Show';
-import ShowInterview from './pages/showInterview';
+import ShowInterview from './pages/ShowInterviewI';
 import baseURL from './Api';
 
 function App() {
