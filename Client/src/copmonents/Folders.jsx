@@ -1,4 +1,4 @@
-import { useNavigate, Link, useParams } from "react-router-dom";
+import {  Link } from "react-router-dom";
 
 function Folders({user}) {
   return (
