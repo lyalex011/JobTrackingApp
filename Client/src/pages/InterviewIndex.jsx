@@ -107,11 +107,9 @@ function InterviewIndex({ user }) {
         <thead className="text-xs text-gray-50 uppercase bg-blue-950 md:hidden">
           <tr>
             <th scope="col" className="px-6 py-3">
-              Company name
+              Company/Role
             </th>
-            <th scope="col" className="px-6 py-3">
-              Role
-            </th>
+
             <th scope="col" className="px-6 py-3 ">
               Next interview
             </th>
@@ -141,15 +139,8 @@ function InterviewIndex({ user }) {
                         <div className="flex flex-col justify-center">
                           <h6 className="mb-0 text-sm leading-normal font-bold underline">
                             {item.company}
+
                           </h6>
-                        </div>
-                      </div>
-                    </Link>
-                  </td>
-                  <td className="px-2 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                    <Link to={`/showinterview/${authorId}/${item._id}`}>
-                      <div className="flex px-2 py-1">
-                        <div className="flex flex-col justify-center">
                           <p className="mb-0 text-xs leading-tight font-bold text-slate-500 underline">
                             {item.role}
                           </p>
@@ -157,6 +148,7 @@ function InterviewIndex({ user }) {
                       </div>
                     </Link>
                   </td>
+                  
 
                   <td className="px-2 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
                     <Link to={`/showinterview/${authorId}/${item._id}`}>

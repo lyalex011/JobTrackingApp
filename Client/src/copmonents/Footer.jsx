@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="bg-neutral-200 text-center  inset-x-0 bottom-0 lg:text-left mt-24 pt-1">
+    <footer className="bg-neutral-200 text-center w-full  inset-x-0 bottom-0 lg:text-left mt-24 pt-1">
       <div className="p-4 text-center text-neutral-700 ">
         © 2023 Job application tracker
         <ul className="flex flex-wrap items-center justify-center mt-3 text-sm font-medium text-gray-500  sm:mt-2">

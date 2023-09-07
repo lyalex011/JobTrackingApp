@@ -137,11 +137,9 @@ function Archive({ user }) {
         <thead className="text-xs text-gray-50 uppercase bg-blue-950 md:hidden">
           <tr>
             <th scope="col" className="px-6 py-3">
-              Company name
+              Company/Role
             </th>
-            <th scope="col" className="px-6 py-3">
-              Role
-            </th>
+
             <th scope="col" className="px-6 py-3 ">
               Restore/Delete
             </th>

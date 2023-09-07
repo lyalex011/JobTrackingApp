@@ -111,9 +111,7 @@ function Wishlist() {
             <th scope="col" className="px-6 py-3">
               Company/Role
             </th>
-            <th scope="col" className="px-6 py-3">
-              Added
-            </th>
+            
             <th scope="col" className="px-6 py-3 ">
               Edit/Archive
             </th>
@@ -151,15 +149,7 @@ function Wishlist() {
                       </div>
                     </Link>
                   </td>
-                  <td className="px-2 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                    <Link to={`/wishshow/${authorId}/${item._id}`}>
-                      <div className="flex px-2 py-1">
-                        <div className="flex flex-col justify-center">
-                          {date}
-                        </div>
-                      </div>
-                    </Link>
-                  </td>
+                  
 
                   <td className="pl-9  py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
                     <div className="flex flex-row gap-8">
