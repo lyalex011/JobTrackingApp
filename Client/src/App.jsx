@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./copmonents/Header";
 import "./App.css";
 import axios from "axios";
@@ -110,6 +110,7 @@ function App() {
             <Route path="/editwish/:authorId/:id" element={<EditWishlist />} />
             <Route path="/login" element={<Login setUser={setUser} />} />
             <Route path="/register" element={<Register setUser={setUser} />} />
+            {!isLoading && <Route path='*' element={<Navigate to='/' />} />}
           </Routes>
           <Footer />
         </div>
