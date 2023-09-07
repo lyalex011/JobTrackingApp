@@ -95,7 +95,7 @@ function Header({ setUser, username }) {
                   </li>
                   <li>
                     <Link
-                      className="flex mr-4 text-lime-100 font-medium hover:text-blue-300"
+                      className="flex text-lime-100 font-medium hover:text-blue-300"
                       to="/dash"
                       onClick={() => {
                         setNavbar(false);
