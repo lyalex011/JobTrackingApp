@@ -69,7 +69,7 @@ Job Application Tracker is a web-based application, which means there's no need 
 
 Trello was used throughout the development lifecycle for efficient project planning and task management. It allowed for the creation of boards, lists, and cards to organize tasks, track progress, and collaborate with team members. This helped in maintaining a structured approach to development and ensuring that project milestones were met in a timely manner.
 
-![trello board]([https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/trello.png])
+![trello board](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/trello.png)
 
 ## Adobe XD for Basic Wireframe Design:
 
