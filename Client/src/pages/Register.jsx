@@ -23,7 +23,7 @@ function Register({ setUser }) {
     e.preventDefault();
 
     try {
-      const authResponse = await axios.post(baseURL+"/auth/register", form);
+      const authResponse = await axios.post(baseURL + "/auth/register", form);
       const token = authResponse.data.token;
 
       if (!token) {
@@ -33,7 +33,7 @@ function Register({ setUser }) {
 
       localStorage.setItem("token", token);
 
-      const userResponse = await axios.get(baseURL+"/api/user", {
+      const userResponse = await axios.get(baseURL + "/api/user", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -61,7 +61,9 @@ function Register({ setUser }) {
             </p>
             <p className="mt-1 text-sm leading-6 text-gray-600">
               Already have an account?{" "}
-              <Link className="text-sky-400 underline" to="/login">Log In</Link>
+              <Link className="text-sky-400 underline" to="/login">
+                Log In
+              </Link>
             </p>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">

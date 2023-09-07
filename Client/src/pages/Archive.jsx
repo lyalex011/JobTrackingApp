@@ -6,7 +6,7 @@ import moment from "moment";
 import { Tooltip } from "flowbite-react";
 import baseURL from "../Api";
 
-function Archive({user}) {
+function Archive({ user }) {
   let { authorId } = useParams();
 
   const [jobs, setJobs] = useState([]);
@@ -15,7 +15,7 @@ function Archive({user}) {
 
   async function getJobs() {
     try {
-      const response = await axios.get(baseURL+`/api/jobs/${authorId}`, {
+      const response = await axios.get(baseURL + `/api/jobs/${authorId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -31,36 +31,36 @@ function Archive({user}) {
     getJobs();
   }, []);
 
-
   async function restoreJob(jobId) {
-
     try {
-      
-     
-      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      let resp = await axios.put(
+        baseURL + `/api/jobs/archive/${authorId}/${jobId}`,
+        jobs,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       getJobs();
-    
     } catch (err) {
-      console.log( err.message);
+      console.log(err.message);
       navigate(`/archive/${authorId}`);
     }
   }
 
   async function deleteJob(jobId) {
-
     try {
-      console.log(jobId)
-      let resp = await axios.delete(baseURL+`/api/jobs/${authorId}/${jobId}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      console.log(jobId);
+      let resp = await axios.delete(
+        baseURL + `/api/jobs/${authorId}/${jobId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       getJobs();
-    
     } catch (err) {
       console.log(err.message);
       navigate(`/archive/${authorId}`);
@@ -68,16 +68,13 @@ function Archive({user}) {
   }
 
   async function deleteAll() {
-
     try {
-      
-      let resp = await axios.delete(baseURL+`/api/jobs/${authorId}`, {
+      let resp = await axios.delete(baseURL + `/api/jobs/${authorId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
       getJobs();
-    
     } catch (err) {
       console.log(err.message);
       navigate(`/archive/${authorId}`);
@@ -98,22 +95,26 @@ function Archive({user}) {
           <div className="flex justify-between">
             <BackToDash />
             <Link
-                  onClick={deleteAll}
-                  className="text-sm flex flex-row align-middle cursor:pointer "
-                >
-            <button
-              type="button"
-              className="bg-gray-300 text-gray-700 shadow-md rounded-r-md py-2 border-l-1 border-blue-950 hover:bg-red-950 hover:text-white px-3"
+              onClick={deleteAll}
+              className="text-sm flex flex-row align-middle cursor:pointer "
             >
-              <div className="flex flex-row align-middle hover:text-white font-bold">
-                
+              <button
+                type="button"
+                className="bg-gray-300 text-gray-700 shadow-md rounded-r-md py-2 border-l-1 border-blue-950 hover:bg-red-950 hover:text-white px-3"
+              >
+                <div className="flex flex-row align-middle hover:text-white font-bold">
                   <span className="mr-2">Empty archive</span>
-                  <svg className="w-4 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-    <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z"/>
-  </svg>
-               
-              </div>
-            </button>
+                  <svg
+                    className="w-4 "
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 18 20"
+                  >
+                    <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
+                  </svg>
+                </div>
+              </button>
             </Link>
           </div>
           <div className="hidden sm:block">
@@ -149,7 +150,7 @@ function Archive({user}) {
         <tbody className="md:hidden">
           {jobs.map((item, index) => {
             let gradient = "";
-            
+
             if (item.priority === 1) {
               gradient =
                 "bg-gradient-to-r from-red-100 via-white via-38% hover:from-red-100 hover:via-slate-200";
@@ -189,7 +190,7 @@ function Archive({user}) {
 
                   <td className="pl-9  py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
                     <div className="flex flex-row gap-8">
-                    <Tooltip
+                      <Tooltip
                         animation="duration-500"
                         style="light"
                         content="Restore"
@@ -199,9 +200,21 @@ function Archive({user}) {
                           className=" p-1 cursor:pointer"
                           onClick={() => restoreJob(item._id)}
                         >
-                          <svg className="w-5 h-5 mb-0 text-xs leading-tight text-slate-400 hover:text-sky-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 14">
-    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7 1 4l3-3m0 12h6.5a4.5 4.5 0 1 0 0-9H2"/>
-  </svg>
+                          <svg
+                            className="w-5 h-5 mb-0 text-xs leading-tight text-slate-400 hover:text-sky-700"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 16 14"
+                          >
+                            <path
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M4 7 1 4l3-3m0 12h6.5a4.5 4.5 0 1 0 0-9H2"
+                            />
+                          </svg>
                         </Link>
                       </Tooltip>
                       <Tooltip
@@ -211,7 +224,7 @@ function Archive({user}) {
                       >
                         <Link
                           data-tooltip-target="tooltip-top"
-                          className=" p-1 cursor:pointer" 
+                          className=" p-1 cursor:pointer"
                           onClick={() => deleteJob(item._id)}
                         >
                           <svg
@@ -245,7 +258,6 @@ function Archive({user}) {
             <th scope="col" className="px-6 py-3">
               Directory
             </th>
-
 
             <th scope="col" className="px-6 py-3 ">
               Date applied
@@ -290,16 +302,14 @@ function Archive({user}) {
                   <td className="px-6 py-3 px-4 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                     <p className="mb-0 text-xs leading-tight text-slate-400">
                       {item.wishlist ? (
-                        
-                            <>Wishlist</>
-
-                        
+                        <>Wishlist</>
                       ) : item.yesInterview ? (
                         <>Interview applications</>
-                      ) : <>All applications</>}
+                      ) : (
+                        <>All applications</>
+                      )}
                     </p>
                   </td>
-
 
                   <td className="px-6 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
                     <p className="mb-0 text-xs leading-tight  text-slate-400">
@@ -308,7 +318,6 @@ function Archive({user}) {
                   </td>
                   <td className="px-6 py-5 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
                     <div className="flex flex-row gap-3 mb-0 text-xs leading-tight  text-slate-400">
-                      
                       <Tooltip
                         animation="duration-500"
                         style="light"
@@ -319,9 +328,21 @@ function Archive({user}) {
                           className=" p-1 cursor:pointer"
                           onClick={() => restoreJob(item._id)}
                         >
-                          <svg className="w-5 h-5 mb-0 text-xs leading-tight text-slate-400 hover:text-sky-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 14">
-    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7 1 4l3-3m0 12h6.5a4.5 4.5 0 1 0 0-9H2"/>
-  </svg>
+                          <svg
+                            className="w-5 h-5 mb-0 text-xs leading-tight text-slate-400 hover:text-sky-700"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 16 14"
+                          >
+                            <path
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M4 7 1 4l3-3m0 12h6.5a4.5 4.5 0 1 0 0-9H2"
+                            />
+                          </svg>
                         </Link>
                       </Tooltip>
                       <Tooltip
@@ -331,7 +352,7 @@ function Archive({user}) {
                       >
                         <Link
                           data-tooltip-target="tooltip-top"
-                          className=" p-1 cursor:pointer" 
+                          className=" p-1 cursor:pointer"
                           onClick={() => deleteJob(item._id)}
                         >
                           <svg

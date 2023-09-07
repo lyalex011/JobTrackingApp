@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-// import the controller here
+
 const userController = require('../controllers/userController')
 const { authorize } = require('../middleware/authMiddleware')
 

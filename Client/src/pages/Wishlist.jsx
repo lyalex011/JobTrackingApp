@@ -15,7 +15,7 @@ function Wishlist() {
 
   async function getJobs() {
     try {
-      const response = await axios.get(baseURL+`/api/jobs/${authorId}`, {
+      const response = await axios.get(baseURL + `/api/jobs/${authorId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -32,17 +32,19 @@ function Wishlist() {
   }, []);
 
   async function archiveJob(jobId) {
-
     try {
-      console.log(jobId)
-      let resp = await axios.put(baseURL+`/api/jobs/archive/${authorId}/${jobId}`, jobs, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      console.log(resp)
+      console.log(jobId);
+      let resp = await axios.put(
+        baseURL + `/api/jobs/archive/${authorId}/${jobId}`,
+        jobs,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      console.log(resp);
       getJobs();
-    
     } catch (err) {
       console.log("!", err.message);
       navigate(`/index/${authorId}`);
@@ -62,16 +64,16 @@ function Wishlist() {
         <div className="flex justify-center sm:justify-between wrap w-full lg:w-9/12 xl:w-4/6 2xl:w-1/2  px-6 lg:px-1 xl:px-0">
           <div className="flex justify-between">
             <BackToDash />
-            
-              
-                <Link
-                  to="/additem"
-                  className="text-sm flex flex-row align-middle cursor:pointer "
-                ><button
+
+            <Link
+              to="/additem"
+              className="text-sm flex flex-row align-middle cursor:pointer "
+            >
+              <button
                 type="button"
                 className="bg-gray-300 text-gray-700 shadow-md rounded-r-md py-2 border-l-1 border-blue-950 hover:bg-blue-950 hover:text-white px-3"
               >
-                    <div className="flex flex-row align-middle hover:text-white font-bold">
+                <div className="flex flex-row align-middle hover:text-white font-bold">
                   <span className="mr-2">Add</span>
                   <svg
                     className="w-5 ml-2 "
@@ -83,11 +85,9 @@ function Wishlist() {
                     <path d="M.188 5H5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707c-.358.362-.617.81-.753 1.3C.148 5.011.166 5 .188 5ZM14 8a6 6 0 1 0 0 12 6 6 0 0 0 0-12Zm2 7h-1v1a1 1 0 0 1-2 0v-1h-1a1 1 0 0 1 0-2h1v-1a1 1 0 0 1 2 0v1h1a1 1 0 0 1 0 2Z" />
                     <path d="M6 14a7.969 7.969 0 0 1 10-7.737V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H.188A.909.909 0 0 1 0 6.962V18a1.969 1.969 0 0 0 1.933 2h6.793A7.976 7.976 0 0 1 6 14Z" />
                   </svg>
-                  </div>
-                  </button>
-                </Link>
-              
-            
+                </div>
+              </button>
+            </Link>
           </div>
           <div className="hidden sm:block">
             <div className="flex flex-row gap-0.5 mt-2  ">
@@ -144,8 +144,8 @@ function Wishlist() {
                           <h6 className="mb-0 text-sm leading-normal font-bold underline">
                             {item.company}
                             <p className="mb-0 text-xs leading-tight font-bold text-slate-500 ">
-                            {item.role}
-                          </p>
+                              {item.role}
+                            </p>
                           </h6>
                         </div>
                       </div>
@@ -155,7 +155,7 @@ function Wishlist() {
                     <Link to={`/wishshow/${authorId}/${item._id}`}>
                       <div className="flex px-2 py-1">
                         <div className="flex flex-col justify-center">
-                        {date}
+                          {date}
                         </div>
                       </div>
                     </Link>
@@ -163,7 +163,6 @@ function Wishlist() {
 
                   <td className="pl-9  py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
                     <div className="flex flex-row gap-8">
-                    
                       <Tooltip
                         content="Edit/Change status"
                         animation="duration-500"
@@ -185,7 +184,7 @@ function Wishlist() {
                           </svg>
                         </Link>
                       </Tooltip>
-                      
+
                       <Tooltip
                         content="Archive"
                         animation="duration-500"
@@ -227,7 +226,6 @@ function Wishlist() {
             <th scope="col" className="px-6 py-3">
               Posting link
             </th>
-
 
             <th scope="col" className="px-6 py-3 ">
               Added
@@ -277,26 +275,35 @@ function Wishlist() {
                           href={item.url}
                         >
                           Job listing
-                          <svg className="w-3 h-3 ml-2 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
-  </svg>
+                          <svg
+                            className="w-3 h-3 ml-2 mt-0.5"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 18 18"
+                          >
+                            <path
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+                            />
+                          </svg>
                         </a>
                       ) : (
                         <>No link provided</>
                       )}
                     </p>
                   </td>
-                  
 
                   <td className="px-6 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                   
                     <p className="mb-0 text-xs leading-tight  text-slate-400">
                       {date}
                     </p>
                   </td>
                   <td className="px-6 py-5 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
                     <div className="flex flex-row gap-3 mb-0 text-xs leading-tight  text-slate-400">
-                    
                       <Tooltip
                         content="Edit/Change status"
                         animation="duration-500"
@@ -318,7 +325,7 @@ function Wishlist() {
                           </svg>
                         </Link>
                       </Tooltip>
-                      
+
                       <Tooltip
                         content="Archive"
                         animation="duration-500"

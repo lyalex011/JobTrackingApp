@@ -7,8 +7,6 @@ function NewWishlistItem({ user }) {
   const [defaultDate, setDefaultDate] = useState("");
   const [option, setOption] = useState(2);
 
-
-
   useEffect(() => {
     const today = new Date();
     const formattedDate = today.toISOString().substr(0, 10);
@@ -26,18 +24,16 @@ function NewWishlistItem({ user }) {
     e.preventDefault();
 
     try {
-      
       let newJob = {
-          company: companyRef.current.value,
-          role: positionRef.current.value,
-          url: urlRef.current.value,
-          priority: option,
-          wishlist: true,  
-          comments: commentRef.current.value,
-          user: user,
-        
-      }
-      await axios.post(baseURL+`/api/jobs`, newJob, {
+        company: companyRef.current.value,
+        role: positionRef.current.value,
+        url: urlRef.current.value,
+        priority: option,
+        wishlist: true,
+        comments: commentRef.current.value,
+        user: user,
+      };
+      await axios.post(baseURL + `/api/jobs`, newJob, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -52,11 +48,9 @@ function NewWishlistItem({ user }) {
     setOption(e.target.value);
   };
 
-
-
   const goBack = () => {
-		navigate(-1);
-	}
+    navigate(-1);
+  };
 
   return (
     <div className="flex justify-center">
@@ -127,8 +121,6 @@ function NewWishlistItem({ user }) {
                 </div>
               </div>
 
-              
-
               <div className="sm:col-span-6">
                 <label
                   htmlFor="priority"
@@ -148,10 +140,6 @@ function NewWishlistItem({ user }) {
                 </select>
               </div>
 
-              
-
-              
-
               <div className="col-span-full">
                 <label
                   htmlFor="lg-input"
@@ -170,10 +158,6 @@ function NewWishlistItem({ user }) {
                   />
                 </div>
               </div>
-
-              
-              
-             
             </div>
           </div>
         </div>

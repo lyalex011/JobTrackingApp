@@ -28,7 +28,7 @@ function New({ user }) {
   const intAmsRef = useRef();
   const intTypeRef = useRef();
   const commentRef = useRef();
-  const addressRef = useRef()
+  const addressRef = useRef();
 
   const navigate = useNavigate();
 
@@ -71,7 +71,7 @@ function New({ user }) {
           user: user,
         };
       }
-      await axios.post(baseURL+`/api/jobs`, newJob, {
+      await axios.post(baseURL + `/api/jobs`, newJob, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -91,8 +91,8 @@ function New({ user }) {
   };
 
   const goBack = () => {
-		navigate(-1);
-	}
+    navigate(-1);
+  };
 
   return (
     <div className="flex justify-center">
@@ -277,7 +277,6 @@ function New({ user }) {
               </div>
               {showInput && (
                 <>
-                
                   <div className="sm:col-span-3">
                     <label
                       htmlFor="date"
@@ -368,38 +367,33 @@ function New({ user }) {
                       <option value="Hiring manager">
                         Hiring manager interview
                       </option>
-                      <option value="Behavioral">
-                        Behavioral interview{" "}
-                      </option>
+                      <option value="Behavioral">Behavioral interview </option>
                       <option value="Second or panel">
                         Second or panel interview
                       </option>
-                      <option value="Technical">
-                        Technical interview{" "}
-                      </option>
+                      <option value="Technical">Technical interview </option>
                       <option value="Group">Group interview</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
                   <div className="sm:col-span-3">
-                  <label
-                    htmlFor="Contact"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Address or meeting link
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      type="text"
-                      name="Address"
-                      id="lastNRoleame"
-                      autoComplete="Address"
-                      className="block w-full rounded-md border-0 py-1.5 leading-[1.6] outline-none transition-all duration-200 ease-linear text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
-                      ref={addressRef}
-                    />
+                    <label
+                      htmlFor="Contact"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Address or meeting link
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        name="Address"
+                        id="lastNRoleame"
+                        autoComplete="Address"
+                        className="block w-full rounded-md border-0 py-1.5 leading-[1.6] outline-none transition-all duration-200 ease-linear text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                        ref={addressRef}
+                      />
+                    </div>
                   </div>
-                </div>
-
                 </>
               )}
             </div>

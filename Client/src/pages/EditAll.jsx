@@ -26,20 +26,22 @@ function EditAll() {
   const intAmsRef = useRef();
   const intTypeRef = useRef();
   const commentRef = useRef();
-  const addressRef = useRef()
+  const addressRef = useRef();
 
   async function getJob() {
     try {
-      const response = await axios.get(baseURL+`/api/jobs/${authorId}/${id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axios.get(
+        baseURL + `/api/jobs/${authorId}/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
 
       setJob(response.data);
-      
-        setShowInput(response.data.yesInterview);
 
+      setShowInput(response.data.yesInterview);
     } catch (err) {
       console.log(err.message);
       navigate(`/index/${authorId}`);
@@ -83,7 +85,7 @@ function EditAll() {
           comments: commentRef.current.value,
         };
       }
-      await axios.put(baseURL+`/api/jobs/${authorId}/${id}`, updateJob, {
+      await axios.put(baseURL + `/api/jobs/${authorId}/${id}`, updateJob, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -96,8 +98,6 @@ function EditAll() {
 
   useEffect(() => {
     getJob();
-    
-    
   }, []);
 
   let newDate = "";
@@ -107,13 +107,9 @@ function EditAll() {
     newDate = job.dateApplied.substring(0, 10);
   }
 
- 
-
   if (job.dateInterview) {
     newIntDate = job.dateInterview.substring(0, 10);
   }
-
- 
 
   const handleChange = (e) => {
     setOption(e.target.value);
@@ -131,11 +127,6 @@ function EditAll() {
     return <div>Loading...</div>;
   }
 
-
-
- 
-
-
   return (
     <>
       <h1>Edit Post</h1>
@@ -146,7 +137,6 @@ function EditAll() {
               <h2 className="text-3xl font-bold leading-7 text-gray-900 mb-6">
                 Edit job application
               </h2>
-              
 
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-3">
@@ -377,7 +367,6 @@ function EditAll() {
                         <span className="text-xl mx-1">:</span>
                         <select
                           ref={intMinsRef}
-                          
                           name="minutes"
                           className="mr-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2"
                         >
@@ -395,7 +384,6 @@ function EditAll() {
                         </select>
                         <select
                           ref={intAmsRef}
-                          
                           name="ampm"
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2"
                         >
@@ -428,32 +416,30 @@ function EditAll() {
                         <option value="Second or panel">
                           Second or panel interview
                         </option>
-                        <option value="Technical">
-                          Technical interview{" "}
-                        </option>
+                        <option value="Technical">Technical interview </option>
                         <option value="Group">Group interview</option>
                         <option value="Other">Other</option>
                       </select>
                     </div>
                     <div className="sm:col-span-3">
-                  <label
-                    htmlFor="Contact"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Address or meeting link
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      type="text"
-                      name="Address"
-                      id="lastNRoleame"
-                      autoComplete="Address"
-                      className="block w-full rounded-md border-0 py-1.5 leading-[1.6] outline-none transition-all duration-200 ease-linear text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
-                      ref={addressRef}
-                      defaultValue={job.intAddress}
-                    />
-                  </div>
-                </div>
+                      <label
+                        htmlFor="Contact"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Address or meeting link
+                      </label>
+                      <div className="mt-2">
+                        <input
+                          type="text"
+                          name="Address"
+                          id="lastNRoleame"
+                          autoComplete="Address"
+                          className="block w-full rounded-md border-0 py-1.5 leading-[1.6] outline-none transition-all duration-200 ease-linear text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                          ref={addressRef}
+                          defaultValue={job.intAddress}
+                        />
+                      </div>
+                    </div>
                   </>
                 )}
               </div>
