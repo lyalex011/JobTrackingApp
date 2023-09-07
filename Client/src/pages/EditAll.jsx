@@ -370,7 +370,7 @@ function EditAll() {
                           name="minutes"
                           className="mr-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2"
                         >
-                          <option value="0">00</option>
+                          <option value="00">00</option>
                           <option value="05">05</option>
                           <option value="10">10</option>
                           <option value="15">15</option>
