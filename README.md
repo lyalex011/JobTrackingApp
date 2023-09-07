@@ -75,13 +75,24 @@ Trello was used throughout the development lifecycle for efficient project plann
 
 Adobe XD played a crucial role in the initial design phase of the Job Application Tracker. It was used to create basic wireframes and mockups, providing a visual representation of the application's user interface and user experience. Adobe XD facilitated the visualization and planning of key design elements, ensuring a user-friendly and intuitive interface for the final product.
 
-Here are some examples and actual result:
-![trello board]([https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Web%201920%20%E2%80%93%201.png])
-![trello board]([https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Screenshot%2001.png])
-![trello board]([https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Web%201920%20%E2%80%93%202.png])
-![trello board]([https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Screenshot%202.png])
-![trello board]([https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Web%201920%20%E2%80%93%203.png])
-![trello board]([https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Screenshot%203.png])
+Here are some examples and actual results
+Dashboard idea
+![dash wireframe ](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Web%201920%20%E2%80%93%201.png)
+
+Result:
+![dash](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Screenshot%2001.png)
+
+Folder design
+![folder wireframe ](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Web%201920%20%E2%80%93%202.png)
+
+Inside the folder "Wishlist"
+![folder](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Screenshot%202.png)
+
+Table wireframe
+![table idea](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Web%201920%20%E2%80%93%203.png)
+
+Table for Desktop screen
+![table](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Screenshot%203.png)
 
 
 ## Contributing
