@@ -110,7 +110,7 @@ function InterviewIndex({ user }) {
               Company/Role
             </th>
 
-            <th scope="col" className="px-6 py-3 ">
+            <th scope="col" className="flex justify-center px-6 py-3 ">
               Next interview
             </th>
           </tr>
@@ -151,7 +151,7 @@ function InterviewIndex({ user }) {
                   
 
                   <td className="px-2 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                    <Link to={`/showinterview/${authorId}/${item._id}`}>
+                    <Link className="flex flex-col items-center" to={`/showinterview/${authorId}/${item._id}`}>
                       <h6 className="mb-0 text-xs leading-normal font-bold ">
                         {item.typeInterview}
                       </h6>

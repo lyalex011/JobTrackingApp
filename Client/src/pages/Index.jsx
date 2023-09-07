@@ -110,7 +110,7 @@ function Index({ user }) {
               Company/Role
             </th>
 
-            <th scope="col" className="px-6 py-3 ">
+            <th scope="col" className="flex justify-center px-6 py-3 ">
               Date applied
             </th>
           </tr>
@@ -150,7 +150,7 @@ function Index({ user }) {
                   
 
                   <td className="px-6 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                    <Link to={`/show/${authorId}/${item._id}`}>
+                    <Link className="flex justify-center" to={`/show/${authorId}/${item._id}`}>
                       <p className="mb-0 text-xs leading-tight  text-slate-400 ">
                         {date}
                       </p>

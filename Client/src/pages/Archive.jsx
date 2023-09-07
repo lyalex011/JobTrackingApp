@@ -140,7 +140,7 @@ function Archive({ user }) {
               Company/Role
             </th>
 
-            <th scope="col" className="px-6 py-3 ">
+            <th scope="col" className="flex justify-center px-6 py-3 ">
               Restore/Delete
             </th>
           </tr>
@@ -179,8 +179,8 @@ function Archive({ user }) {
                   </td>
                   
 
-                  <td className="pl-9  py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                    <div className="flex flex-row gap-8">
+                  <td className="py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
+                    <div className="flex justify-center flex-row gap-8">
                       <Tooltip
                         animation="duration-500"
                         style="light"
