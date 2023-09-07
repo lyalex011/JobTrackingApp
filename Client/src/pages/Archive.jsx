@@ -170,14 +170,6 @@ function Archive({ user }) {
                           <h6 className="mb-0 text-sm leading-normal font-bold ">
                             {item.company}
                           </h6>
-                        </div>
-                      </div>
-                    </Link>
-                  </td>
-                  <td className="px-6 py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                    <Link>
-                      <div className="flex px-2 py-1">
-                        <div className="flex flex-col justify-center">
                           <p className="mb-0 text-xs leading-tight font-bold text-slate-500 ">
                             {item.role}
                           </p>
@@ -185,6 +177,7 @@ function Archive({ user }) {
                       </div>
                     </Link>
                   </td>
+                  
 
                   <td className="pl-9  py-3 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
                     <div className="flex flex-row gap-8">
