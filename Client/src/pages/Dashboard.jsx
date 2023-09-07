@@ -12,7 +12,7 @@ function Dashboard({ user, userName }) {
   const [allCount, setAllCount] = useState();
 
   async function getCount(type) {
-    let body = { user: user._id };
+    let body = { user: user.id };
     if (type === "archive") {
       body.archived = true;
     }
