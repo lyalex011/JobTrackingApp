@@ -29,7 +29,7 @@ function EditWishlist() {
 
   async function getJob() {
     try {
-      console.log("id: ", authorId, id);
+      
       const response = await axios.get(
         baseURL + `/api/jobs/${authorId}/${id}`,
         {
