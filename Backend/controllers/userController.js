@@ -1,4 +1,5 @@
 const User = require('../models/userModel')
+const Jobs = require("../models/jobModel");
 
 //show
 module.exports.show = async (req, res) => {
@@ -21,6 +22,9 @@ module.exports.show = async (req, res) => {
 module.exports.delete = async (req, res) => {
     try{
         const posts = await User.findByIdAndDelete(req.params.authorId)
+        await Jobs.deleteMany({
+            user: req.params.authorId,   
+        })
         res.json({message: 'User Deleted'})
     }catch(error){
         console.log(error.message)

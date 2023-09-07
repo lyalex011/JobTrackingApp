@@ -33,7 +33,7 @@ function Index({ user }) {
 
   async function archiveJob(jobId) {
     try {
-      console.log(jobId);
+     
       let resp = await axios.put(
         baseURL + `/api/jobs/archive/${authorId}/${jobId}`,
         jobs,
