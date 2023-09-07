@@ -86,7 +86,7 @@ function Features() {
               </svg>
             </div>
             <h3 className="mb-2 text-xl font-bold text-sky-900">
-              Accessibility
+              Enjoy the Accessibility
             </h3>
             <p className="text-gray-700 ">
               Whether you're on your computer, tablet, or smartphone, access
