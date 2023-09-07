@@ -71,6 +71,8 @@ function App() {
               path="/faq"
               element={<FaqPage />}
             />
+            {loggedIn ?
+            <>
             <Route
               path="/dash"
               element={<Dashboard user={user} userName={loggedIn} />}
@@ -108,9 +110,14 @@ function App() {
               element={<EditWithInterview />}
             />
             <Route path="/editwish/:authorId/:id" element={<EditWishlist />} />
+            </>
+            :
+            <>
             <Route path="/login" element={<Login setUser={setUser} />} />
             <Route path="/register" element={<Register setUser={setUser} />} />
             {!isLoading && <Route path='*' element={<Navigate to='/' />} />}
+            </>}
+            
           </Routes>
           <Footer />
         </div>
