@@ -24,16 +24,18 @@ import baseURL from "./Api";
 import WishShow from "./pages/WishShow";
 import Profile from "./pages/Profile";
 import FaqPage from "./pages/Faq";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  
 
-  async function getUser(token) {
+  async function getUser() {
     try {
       const response = await axios.get(baseURL + "/api/user", {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
       setUser(response.data);
@@ -53,6 +55,8 @@ function App() {
       setIsLoading(false);
     }
   }, []);
+
+  
 
   let loggedIn = user.firstName;
   let loggedIn_id = user.id;
@@ -78,7 +82,7 @@ function App() {
               element={<Dashboard user={user} userName={loggedIn} />}
             />
             <Route path="/new" element={<New user={loggedIn_id} />} />
-            <Route path="/profile" element={<Profile user={user} />} />
+            <Route path="/profile" element={<Profile user={user} setUser={setUser}/>} />
             <Route path="/show/:authorId/:id" element={<Show />} />
             <Route path="/wishshow/:authorId/:id" element={<WishShow />} />
             <Route
@@ -103,7 +107,7 @@ function App() {
               path="/archive/:authorId"
               element={<Archive user={loggedIn_id} />}
             />
-
+            <Route path="/editprofile/:authorId" element={<EditProfile user={user} />} />
             <Route path="/edit/:authorId/:id" element={<EditAll />} />
             <Route
               path="/editinterview/:authorId/:id"

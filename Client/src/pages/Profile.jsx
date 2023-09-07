@@ -1,13 +1,63 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+import baseURL from "../Api";
 
-function Profile({ user }) {
+function Profile({setUser}) {
   const [showInput, setShowInput] = useState(false);
+  const [user2, setUser2] = useState({});
+
+  const navigate = useNavigate();
+ 
+
+  async function getUser(token) {
+    try {
+      const response = await axios.get(baseURL + "/api/user", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setUser2(response.data);
+    } catch (err) {
+      console.log(err);
+      localStorage.removeItem("token");
+    }
+    
+  }
+
+  useEffect(() => {
+
+    let token = localStorage.getItem("token");
+      getUser(token);
+    
+  }, []);
+
 
   const handleCheckboxChange = () => {
     setShowInput(!showInput);
   };
+
+  async function handleDelete() {
+    try {
+      
+      let resp = await axios.delete(
+        baseURL + `/api/user/${user2.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      localStorage.removeItem("token");
+      setUser({});
+      navigate(`/`);
+    } catch (err) {
+      console.log(err.message);
+      navigate(`/profile`);
+    }
+  }
+  
 
   return (
     <div className="h-full bg-white pt-20">
@@ -22,14 +72,15 @@ function Profile({ user }) {
               />
               <div className="py-2">
                 <h3 className="font-bold text-2xl mb-1">
-                  {user.firstName} {user.lastName}
+                  {user2.firstName} {user2.lastName}
                 </h3>
                 <div className="inline-flex text-gray-700 items-center">
-                  {user.email}
+                  {user2.email}
                 </div>
               </div>
             </div>
             <div className="flex justify-center gap-2 px-2">
+            <Link to={`/editprofile/${user2.id}`}>
               <button className="flex flex-row gap-3 font-bold text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-2 focus:outline-none focus:ring-lime-200  font-medium rounded-lg text-sm px-12 py-3 text-center mr-1 mb-2">
                 Edit
                 <svg
@@ -48,6 +99,7 @@ function Profile({ user }) {
                   />
                 </svg>
               </button>
+              </Link>
               <Link to="/dash">
                 <button className="ml-4 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 hover:text-black focus:ring-2 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
                   <span className="relative px-6 py-2.5 transition-all ease-in duration-75 bg-slate-700  rounded-md group-hover:bg-opacity-0">
@@ -88,7 +140,7 @@ function Profile({ user }) {
                   </div>
                 </div>
                 <div className="flex justify-center gap-2 px-2">
-                  <button className=" relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 hover:text-black focus:ring-2 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+                  <button  onClick={handleDelete} className=" relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 hover:text-black focus:ring-2 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
                     <span className="relative px-6 py-2.5 transition-all ease-in duration-75 bg-red-700  rounded-md group-hover:bg-opacity-0">
                       Delete account
                     </span>
@@ -107,9 +159,9 @@ function Profile({ user }) {
           </div>
           <div className="px-4 py-4">
             <div className="flex gap-2 items-center text-gray-800r mb-4">
-              {user.created && (
+              {user2.created && (
                 <span>
-                  Have account since {moment(user.created).format("ll")}
+                  Have account since {moment(user2.created).format("ll")}
                 </span>
               )}
             </div>

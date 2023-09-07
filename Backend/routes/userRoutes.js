@@ -5,7 +5,7 @@ const userController = require('../controllers/userController')
 const { authorize } = require('../middleware/authMiddleware')
 
 router.get('/', authorize, userController.show)
-router.put('/', authorize, userController.update)
-router.delete('/', authorize, userController.delete)
+router.put('/:authorId', authorize, userController.update)
+router.delete('/:authorId', authorize, userController.delete)
 
 module.exports = router
