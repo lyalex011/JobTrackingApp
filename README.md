@@ -65,6 +65,36 @@ Link to the web application: [Job Application Tracker](https://jobtrackingapp.on
 
 Job Application Tracker is a web-based application, which means there's no need for installation. Simply open your preferred web browser and visit the QuickPic Generator website to start exploring and generating stylish images instantly.
 
+## Trello for Project Planning:
+
+Trello was used throughout the development lifecycle for efficient project planning and task management. It allowed for the creation of boards, lists, and cards to organize tasks, track progress, and collaborate with team members. This helped in maintaining a structured approach to development and ensuring that project milestones were met in a timely manner.
+
+![trello board](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/trello.png)
+
+## Adobe XD for Basic Wireframe Design:
+
+Adobe XD played a crucial role in the initial design phase of the Job Application Tracker. It was used to create basic wireframes and mockups, providing a visual representation of the application's user interface and user experience. Adobe XD facilitated the visualization and planning of key design elements, ensuring a user-friendly and intuitive interface for the final product.
+
+Here are some examples and actual results
+Dashboard idea
+![dash wireframe ](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Web%201920%20%E2%80%93%201.png)
+
+Result:
+![dash](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Screenshot%2001.png)
+
+Folder design
+![folder wireframe ](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Web%201920%20%E2%80%93%202.png)
+
+Inside the folder "Wishlist"
+![folder](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Screenshot%202.png)
+
+Table wireframe
+![table idea](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Web%201920%20%E2%80%93%203.png)
+
+Table for Desktop screen
+![table](https://github.com/lyalex011/JobTrackingApp/blob/main/Client/public/Screenshot%203.png)
+
+
 ## Contributing
 
 Job Application Tracker is an open-source project, and we welcome contributions from the community. If you have ideas for new features or want to report bugs, please feel free to submit a pull request or create an issue on our GitHub repository.
