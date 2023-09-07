@@ -10,7 +10,7 @@ const PORT = 8080
 const connectDB = require('./config')
 connectDB()
 
-// import routes
+
 const jobRoutes = require('./routes/jobRoutes')
 const authRoutes = require('./routes/authRoutes')
 const userRoutes = require('./routes/userRoutes')
