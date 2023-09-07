@@ -76,7 +76,7 @@ function Header({ setUser, username }) {
                 </Link>
               </li>
 
-              <li>
+              {/* <li>
                 <Link
                   className=" font-medium text-lime-100 hover:text-blue-300 mr-8"
                   to="/faq"
@@ -86,12 +86,24 @@ function Header({ setUser, username }) {
                 >
                   FAQ
                 </Link>
-              </li>
+              </li> */}
 
               {username ? (
                 <>
                   <li className="mr-4 text-blue-200 font-medium">
                     Welcome,&nbsp;{username}!
+                  </li>
+                  <li>
+                    <Link
+                      className="flex mr-4 text-lime-100 font-medium hover:text-blue-300"
+                      to="/dash"
+                      onClick={() => {
+                        setNavbar(false);
+                      }}
+                    >
+                      
+                      Dashboard
+                    </Link>
                   </li>
                   <li>
                     <Link
